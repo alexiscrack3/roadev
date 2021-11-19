@@ -48,6 +48,8 @@ group :development do
   gem 'spring'
   # Adds comments summarizing the current schema of each model
   gem 'annotate', '~> 3.1.1'
+  # Generates fake data
+  gem 'faker', '~> 2.19.0'
 end
 
 group :test do
