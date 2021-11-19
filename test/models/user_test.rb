@@ -6,6 +6,7 @@ class UserTest < ActiveSupport::TestCase
       first_name: 'Foo',
       last_name: 'Bar',
       email: 'email@gmail.com',
+      password: '123456',
       password_digest: '123456'
     )
   end
@@ -61,5 +62,35 @@ class UserTest < ActiveSupport::TestCase
     @user.email = mixed_case_email
     @user.save
     assert_equal mixed_case_email.downcase, @user.reload.email
+  end
+
+  test 'user should not be valid when password is nil' do
+    @user.password = nil
+    assert_not @user.valid?
+  end
+
+  test 'user should not be valid when password is empty' do
+    user = User.new(
+      first_name: 'Foo',
+      last_name: 'Bar',
+      email: 'email@gmail.com',
+      password: ''
+    )
+    assert_not user.valid?
+  end
+
+  test 'user should not be valid when password is blank' do
+    @user.password = ' '
+    assert_not @user.valid?
+  end
+
+  test 'user should not be valid when password is not at least 6 characters' do
+    user = User.new(
+      first_name: 'Foo',
+      last_name: 'Bar',
+      email: 'email@gmail.com',
+      password: "#{'a' * 5}"
+    )
+    assert_not user.valid?
   end
 end
