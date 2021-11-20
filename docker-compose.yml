@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  roadev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: roadev
+    # depends_on:
+    #   - db
+    environment:
+      DB_ROOT_PASSWORD: password
+    ports:
+      - 3000:3000
+    networks:
+      - roadev-network
+
+networks:
+  roadev-network:
+    driver: bridge
+
+volumes:
+  db-data: null
