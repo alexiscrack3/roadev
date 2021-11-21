@@ -1,0 +1,31 @@
+name: Unit Tests CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  unit-tests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout files
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        # Not needed with a .ruby-version file
+        ruby-version: 2.6.3
+        # runs 'bundle install' and caches installed gems automatically
+        bundler-cache: true
+
+      # - name: Create DB
+      #   run: |
+      #     bin/rails db:prepare
+      - name: Run tests
+        run: |
+          rails test
+
