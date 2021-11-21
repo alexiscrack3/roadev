@@ -34,5 +34,9 @@ jobs:
 
     - name: Run tests
       run: |
+        bin/rails webpacker:install
+
+    - name: Run tests
+      run: |
         bin/rails test
 
