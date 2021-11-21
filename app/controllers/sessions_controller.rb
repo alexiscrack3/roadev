@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def sign_in
+    @user = User.new
   end
 
   def create
@@ -14,5 +15,22 @@ class SessionsController < ApplicationController
     else
       redirect_to users_sign_in_path
     end
+  end
+
+  def create_user
+    @user = User.new(user_params)
+    if @user.save
+      flash[:success] = "Welcome to the Dashboard!"
+      redirect_to dashboard_url
+      # redirect_to user_url(@user) # or redirect_to @user
+    else
+      render 'sign_up'
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 end
