@@ -2,10 +2,10 @@ user_a:
   first_name: Foo
   last_name: Bar
   email: foo.bar@gmail.com
-  password_digest: <%= User.digest('123456') %>
+  password_digest: <%= User.digest('password') %>
 
 user_b:
   first_name: John
   last_name: Smith
   email: john.smith@gmail.com
-  password_digest: 123456
+  password_digest: password

@@ -6,8 +6,8 @@ class UserTest < ActiveSupport::TestCase
       first_name: 'Foo',
       last_name: 'Bar',
       email: 'email@gmail.com',
-      password: '123456',
-      password_digest: '123456'
+      password: 'password',
+      password_digest: 'password'
     )
   end
 
