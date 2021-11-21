@@ -8,6 +8,8 @@ ENV NODE_ENV=production
 
 ENV RAILS_SERVE_STATIC_FILES=true
 
+ENV FIX_THIS_BOOLEAN=true
+
 RUN apk update \
     && apk add build-base \
     && apk add less \
