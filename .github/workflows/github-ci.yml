@@ -1,0 +1,57 @@
+name: GitHub CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          # Not needed with a .ruby-version file
+          ruby-version: 2.6.3
+          # runs 'bundle install' and caches installed gems automatically
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundler install
+
+      - name: Create database
+        run: |
+          bin/rails db:create RAILS_ENV=test
+          bin/rails db:migrate RAILS_ENV=test
+
+      - name: Install webpack dependencies
+        run: |
+          bin/rails webpacker:install
+
+      - name: Run tests
+        run: |
+          bin/rails test
+
+  build:
+    runs-on: ubuntu-18.04
+    needs: unit-tests
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: alexiscrack3/roadev:latest
