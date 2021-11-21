@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
-  def new
-  end
-
   def sign_up
     @user = User.new
+  end
+
+  def sign_in
   end
 
   def create
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
-      redirect_to login_path
+      redirect_to users_sign_in_path
     end
   end
 end
