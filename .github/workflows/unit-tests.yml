@@ -22,6 +22,10 @@ jobs:
         # runs 'bundle install' and caches installed gems automatically
         bundler-cache: true
 
+    - name: Install dependencies
+      run: |
+        bin/rails webpacker:compile
+
     - name: Run tests
       run: |
         bin/rails test
