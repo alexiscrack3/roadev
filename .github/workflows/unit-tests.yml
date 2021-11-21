@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout files
+    - name: Check out repository
       uses: actions/checkout@v2
 
     - name: Set up Ruby
@@ -22,19 +22,15 @@ jobs:
         # runs 'bundle install' and caches installed gems automatically
         bundler-cache: true
 
-    - name: Set up Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.18.3
-
-    - name: Set up Yarn
-      uses: borales/actions-yarn@v2.0.0
-      with:
-        cmd: install
-
     - name: Install dependencies
       run: |
-        bin/rails webpacker:compile
+        gem install bundler
+        bundler install
+
+    - name: Create database
+      run: |
+        bin/rails db:create RAILS_ENV=test
+        bin/rails db:migrate RAILS_ENV=test
 
     - name: Run tests
       run: |
