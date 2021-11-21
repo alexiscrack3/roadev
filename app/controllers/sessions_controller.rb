@@ -13,7 +13,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
-      redirect_to users_sign_in_path
+      # flash.now[:danger] = 'Invalid email/password combination'
+      render 'sign_in'
     end
   end
 

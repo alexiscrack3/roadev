@@ -28,8 +28,6 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     }
     post users_sign_in_path, params: { session: session }
     assert_not is_logged_in?
-    assert_redirected_to users_sign_in_path
-    follow_redirect!
     assert_template 'sessions/sign_in'
   end
 
@@ -42,8 +40,6 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     }
     post users_sign_in_path, params: { session: session }
     assert_not is_logged_in?
-    assert_redirected_to users_sign_in_path
-    follow_redirect!
     assert_template 'sessions/sign_in'
   end
 end
