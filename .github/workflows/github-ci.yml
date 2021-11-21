@@ -45,6 +45,39 @@ jobs:
           name: coverage-report
           path: coverage
 
+  linter:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          # Not needed with a .ruby-version file
+          ruby-version: 2.6.3
+          # runs 'bundle install' and caches installed gems automatically
+          bundler-cache: true
+
+      - name: Make artifacts directory
+        run: mkdir -p artifacts
+
+      # - name: Install dependencies
+      #   run: |
+      #     gem install bundler
+      #     bundler install
+
+      - name: Install Rubocop
+        run: gem install rubocop
+
+      - name: Run linter
+        run: rubocop > artifacts/results.txt
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-artifacts
+          path: artifacts/results.txt
+
   build:
     runs-on: ubuntu-18.04
     needs: unit-tests
