@@ -22,6 +22,16 @@ jobs:
         # runs 'bundle install' and caches installed gems automatically
         bundler-cache: true
 
+    - name: Set up Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.13.0
+
+    - name: Set up Yarn
+      uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: install
+
     - name: Install dependencies
       run: |
         bin/rails webpacker:compile
