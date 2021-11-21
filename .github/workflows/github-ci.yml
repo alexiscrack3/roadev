@@ -46,6 +46,7 @@ jobs:
           path: coverage
 
   linter:
+    name: static code analyzer
     runs-on: ubuntu-18.04
     steps:
       - name: Check out repository
@@ -71,7 +72,7 @@ jobs:
         run: gem install rubocop
 
       - name: Run linter
-        run: rubocop > artifacts/results.txt
+        run: bin/rubocop > artifacts/results.txt
 
       - uses: actions/upload-artifact@v2
         with:
