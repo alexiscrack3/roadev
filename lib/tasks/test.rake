@@ -1,9 +1,9 @@
 namespace :test do
-  desc 'Run tests with coverage'
+  desc "Run tests with coverage"
   task :coverage do
-    require 'simplecov'
-    SimpleCov.start 'rails'
+    require "simplecov"
+    SimpleCov.start "rails"
 
-    Rake::Task['test'].invoke
+    Rake::Task["test"].invoke
   end
 end

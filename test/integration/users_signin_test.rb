@@ -5,41 +5,41 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     @user = users(:user_a)
   end
 
-  test 'user should be redirected to dashboard when email and password are valid' do
+  test "user should be redirected to dashboard when email and password are valid" do
     get users_sign_in_path
-    assert_template 'sessions/sign_in'
+    assert_template "sessions/sign_in"
     session = {
       email: @user.email,
-      password: 'password'
+      password: "password"
     }
     post users_sign_in_path, params: { session: session }
-    assert is_logged_in?
+    assert logged_in?
     assert_redirected_to dashboard_path
     follow_redirect!
-    assert_template 'dashboard/index'
+    assert_template "dashboard/index"
   end
 
-  test 'user should be redirected to login when email is valid and password is invalid' do
+  test "user should be redirected to login when email is valid and password is invalid" do
     get users_sign_in_path
-    assert_template 'sessions/sign_in'
+    assert_template "sessions/sign_in"
     session = {
       email: @user.email,
-      password: 'invalid'
+      password: "invalid"
     }
     post users_sign_in_path, params: { session: session }
-    assert_not is_logged_in?
-    assert_template 'sessions/sign_in'
+    assert_not logged_in?
+    assert_template "sessions/sign_in"
   end
 
-  test 'user should be redirected to login when email is invalid and password is valid' do
+  test "user should be redirected to login when email is invalid and password is valid" do
     get users_sign_in_path
-    assert_template 'sessions/sign_in'
+    assert_template "sessions/sign_in"
     session = {
-      email: 'invalid',
-      password: 'password'
+      email: "invalid",
+      password: "password"
     }
     post users_sign_in_path, params: { session: session }
-    assert_not is_logged_in?
-    assert_template 'sessions/sign_in'
+    assert_not logged_in?
+    assert_template "sessions/sign_in"
   end
 end

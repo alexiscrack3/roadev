@@ -3,23 +3,23 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)
 
 LearningPath.delete_all
 LearningPath.create!(
-  title: 'Frontend',
-  description: 'Step by step guide to becoming a frontend developer'
+  title: "Frontend",
+  description: "Step by step guide to becoming a frontend developer"
 )
 
 LearningPath.create!(
-  title: 'Backend',
-  description: 'Step by step guide to becoming a backend developer'
+  title: "Backend",
+  description: "Step by step guide to becoming a backend developer"
 )
 
 LearningPath.create!(
-  title: 'DevOps',
-  description: 'Step by step guide for DevOps or operations role'
+  title: "DevOps",
+  description: "Step by step guide for DevOps or operations role"
 )
 
 6.times do
