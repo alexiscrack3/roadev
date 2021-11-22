@@ -63,8 +63,7 @@ jobs:
         run: gem install rubocop
 
       - name: Run linter
-        run: |
-          rubocop
+        run: rubocop
 
   build:
     runs-on: ubuntu-18.04
