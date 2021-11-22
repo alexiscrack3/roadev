@@ -60,10 +60,9 @@ jobs:
           bundler-cache: true
 
       - name: Install Rubocop
-        run: gem install rubocop
+        run: gem install rubocop-github
 
       - name: Run linter
-        continue-on-error: true
         run: rubocop
 
   build:

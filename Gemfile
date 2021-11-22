@@ -50,6 +50,7 @@ group :development do
   gem "annotate", "~> 3.1.1"
   # Generates fake data
   gem "faker", "~> 2.19.0"
+  gem "rubocop-github", require: false
 end
 
 group :test do
