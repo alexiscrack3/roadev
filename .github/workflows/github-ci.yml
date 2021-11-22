@@ -59,24 +59,12 @@ jobs:
           # runs 'bundle install' and caches installed gems automatically
           bundler-cache: true
 
-      - name: Install dependencies
-        run: |
-          gem install bundler
-          bundler install
-
       - name: Install Rubocop
         run: gem install rubocop
 
       - name: Run linter
         run: |
-          mkdir artifacts
-          touch artifacts/results.txt
-          rubocop 2>&1 artifacts/results.txt
-
-      - uses: actions/upload-artifact@v2
-        with:
-          name: my-artifacts
-          path: artifacts/results.txt
+          rubocop
 
   build:
     runs-on: ubuntu-18.04
