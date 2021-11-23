@@ -103,6 +103,7 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
+              echo ${{ secrets.PASSWORD }} | sudo -S docker ps
               sudo docker pull ${{ env.IMAGE_NAME }}
               sudo docker stop ${{ env.IMAGE_NAME }}
               sudo docker rmi $(sudo docker images -q)
