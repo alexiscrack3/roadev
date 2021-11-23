@@ -4,9 +4,6 @@ on:
   push:
     branches: [ main ]
 
-env:
-  IMAGE_NAME: alexiscrack3/roadev:latest
-
 jobs:
   unit-tests:
     runs-on: ubuntu-18.04
@@ -86,7 +83,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ IMAGE_NAME }}
+          tags: alexiscrack3/roadev:latest
 
   deploy:
     runs-on: ubuntu-18.04
@@ -102,7 +99,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-              sudo docker pull ${{ IMAGE_NAME }}
-              sudo docker stop ${{ IMAGE_NAME }}
+              sudo docker pull alexiscrack3/roadev:latest
+              sudo docker stop alexiscrack3/roadev:latest
               sudo docker rmi $(sudo docker images -q)
-              sudo docker run --rm --name roadev -p 3000:3000 -e RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }} -d ${{ IMAGE_NAME }}
+              sudo docker run --rm --name roadev -p 3000:3000 -e RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }} -d alexiscrack3/roadev:latest
