@@ -8,6 +8,8 @@ ENV NODE_ENV=production
 
 ENV RAILS_SERVE_STATIC_FILES=true
 
+# ENV RAILS_LOG_TO_STDOUT true
+
 RUN apk update \
     && apk add build-base \
     && apk add less \
@@ -35,7 +37,13 @@ RUN yarn install --production
 
 RUN bundle exec rails assets:precompile
 
+RUN bundle exec rake assets:precompile
+
 COPY [".", "/usr/src"]
+
+RUN bundle exec rails assets:precompile
+
+RUN bundle exec rake assets:precompile
 
 EXPOSE 3000
 
