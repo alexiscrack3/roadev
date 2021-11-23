@@ -98,12 +98,12 @@ jobs:
       - name: Executing remote ssh commands
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
           script: |
-              echo ${{ secrets.PASSWORD }} | sudo -S docker ps
+              echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker ps
               sudo docker pull ${{ env.IMAGE_NAME }}
               sudo docker stop ${{ env.IMAGE_NAME }}
               sudo docker rmi $(sudo docker images -q)
