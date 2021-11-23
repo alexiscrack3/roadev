@@ -104,7 +104,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker ps
-              sudo docker pull ${{ env.IMAGE_NAME }}
-              sudo docker stop ${{ env.IMAGE_NAME }}
-              sudo docker rmi $(docker images -qa --filter "dangling=true")
-              sudo docker run --rm --name roadev -p 3000:3000 -e RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }} -d ${{ env.IMAGE_NAME }}
+              echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker pull ${{ env.IMAGE_NAME }}
+              echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker stop ${{ env.IMAGE_NAME }}
+              echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker rmi $(docker images -qa --filter "dangling=true")
+              echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker run --rm --name roadev -p 3000:3000 -e RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }} -d ${{ env.IMAGE_NAME }}
