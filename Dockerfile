@@ -37,7 +37,7 @@ RUN yarn install --production
 
 COPY [".", "/usr/src"]
 
-RUN bin/rails db:setup
+RUN SECRET_KEY_BASE=`bin/rails secret` bin/rails db:setup
 
 RUN SECRET_KEY_BASE=`bin/rails secret` bin/rails assets:precompile
 
