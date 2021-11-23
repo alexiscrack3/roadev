@@ -26,6 +26,9 @@ gem "jbuilder", "~> 2.7"
 # Use Active Model has_secure_password
 gem "bcrypt", "~> 3.1.7"
 
+# Generates fake data
+gem "faker", "~> 2.19.0"
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -48,8 +51,6 @@ group :development do
   gem "spring"
   # Adds comments summarizing the current schema of each model
   gem "annotate", "~> 3.1.1"
-  # Generates fake data
-  gem "faker", "~> 2.19.0"
   gem "rubocop-github", require: false
 end
 
