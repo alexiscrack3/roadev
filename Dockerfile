@@ -35,11 +35,11 @@ COPY ["package.json", "yarn.lock", "/usr/src/"]
 
 RUN yarn install --production
 
-# RUN bundle exec rails assets:precompile
-
 COPY [".", "/usr/src"]
 
-RUN bundle exec rails assets:precompile
+# RUN bundle exec rails assets:precompile
+
+RUN --mount=type=secret,id=master_key,dst=/urs/src/config/master.key rails assets:precompile
 
 EXPOSE 3000
 

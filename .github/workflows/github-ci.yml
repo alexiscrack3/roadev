@@ -84,3 +84,5 @@ jobs:
         with:
           push: true
           tags: alexiscrack3/roadev:latest
+          secrets: |
+            "master_key=${{ secrets.RAILS_MASTER_KEY }}"
