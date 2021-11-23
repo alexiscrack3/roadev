@@ -23,8 +23,6 @@ WORKDIR /usr/src
 
 COPY ["Gemfile", "Gemfile.lock", "/usr/src/"]
 
-RUN gem install rails:6.1.4
-
 RUN gem install bundler:2.1.2
 
 RUN bundle config set without development test
@@ -35,7 +33,7 @@ COPY ["package.json", "yarn.lock", "/usr/src/"]
 
 RUN yarn install --production
 
-RUN rails assets:precompile
+RUN bundle exec rails assets:precompile
 
 COPY [".", "/usr/src"]
 
