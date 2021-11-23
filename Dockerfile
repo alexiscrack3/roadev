@@ -37,9 +37,7 @@ RUN yarn install --production
 
 COPY [".", "/usr/src"]
 
-# RUN bundle exec rails assets:precompile
-
-RUN --mount=type=secret,id=master_key,dst=/urs/src/config/master.key bin/rails assets:precompile
+RUN SECRET_KEY_BASE=`bin/rails secret` bin/rails assets:precompile
 
 EXPOSE 3000
 
