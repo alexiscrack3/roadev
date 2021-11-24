@@ -1,0 +1,41 @@
+# Byebug history
+.byebug_history
+
+# Ignore GitHub Workflows
+.github
+
+# Ignore Intellij stuff
+.idea
+
+# Ignore master key for decrypting credentials and more
+config/master.key
+
+# Ignore code coverage
+coverage/
+
+# Ignore the default SQLite database
+/db/*.sqlite3
+/db/*.sqlite3-*
+
+# Ignore all logfiles and tempfiles
+log/
+tmp/
+
+# Node modules, yarn etc
+public/packs
+public/packs-test
+node_modules
+yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+# Ignore environment files
+*.env
+
+# Ignore database dumps
+*.dump
+
+# Misc files
+.dockerignore
+.git
+.cache
