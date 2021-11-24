@@ -17,6 +17,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     assert_redirected_to dashboard_path
     follow_redirect!
     assert_template "dashboard/index"
+    assert flash.empty?
   end
 
   test "user should be redirected to login when email is valid and password is invalid" do
@@ -29,6 +30,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     post users_sign_in_path, params: { session: session }
     assert_not logged_in?
     assert_template "sessions/sign_in"
+    assert_not flash.empty?
   end
 
   test "user should be redirected to login when email is invalid and password is valid" do
@@ -41,5 +43,6 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     post users_sign_in_path, params: { session: session }
     assert_not logged_in?
     assert_template "sessions/sign_in"
+    assert_not flash.empty?
   end
 end
