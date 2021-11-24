@@ -1,0 +1,7 @@
+version: "3.8"
+
+services:
+  roadev:
+    image: alexiscrack3/roadev:latest
+    ports:
+      - 80:3000
