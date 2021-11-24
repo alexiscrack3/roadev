@@ -6,6 +6,7 @@ on:
 
 env:
   IMAGE_NAME: alexiscrack3/roadev:latest
+  CONTAINER_NAME: roadev
 
 jobs:
   unit-tests:
@@ -105,6 +106,6 @@ jobs:
           script: |
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker ps
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker pull ${{ env.IMAGE_NAME }}
-              echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker stop ${{ env.IMAGE_NAME }}
+              echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker stop ${{ env.CONTAINER_NAME }}
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker rmi $(docker images -qa --filter "dangling=true")
-              echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker run --rm --name roadev -p 3000:3000 -e RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }} -d ${{ env.IMAGE_NAME }}
+              echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker run --rm --name ${{ env.CONTAINER_NAME }} -p 3000:3000 -e RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }} -d ${{ env.IMAGE_NAME }}
