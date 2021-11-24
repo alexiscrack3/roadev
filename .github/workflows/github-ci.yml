@@ -6,7 +6,6 @@ on:
 
 env:
   IMAGE_NAME: alexiscrack3/roadev:latest
-  CONTAINER_NAME: roadev
 
 jobs:
   unit-tests:
@@ -104,9 +103,12 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
+              wget https://github.com/alexiscrack3/roadev/blob/main/docker-compose.yml -O docker-compose.yml
+              wget https://github.com/alexiscrack3/roadev/blob/main/docker-compose.prod.yml -O docker-compose.prod.yml
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker ps
-              echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker stop ${{ env.CONTAINER_NAME }}
+              echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker-compose down
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker ps
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker pull ${{ env.IMAGE_NAME }}
-              echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker run --rm --name ${{ env.CONTAINER_NAME }} -p 80:3000 -e RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }} -d ${{ env.IMAGE_NAME }}
+              echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker-compose -f docker-compose.yml -f docker-compose.prod.yml config
+              echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker rmi $(sudo docker images -qa --filter "dangling=true")
