@@ -12,8 +12,21 @@
       </ul>
 
       <div class="text-end">
-        <%= link_to 'Sign in', users_sign_in_path, class: 'text-white btn me-2' %>
-        <%= link_to 'Sign up', users_sign_up_path, class: 'btn btn-outline-light' %>
+        <% if logged_in? %>
+          <div class="dropdown">
+            <a href="#" class="btn dropdown-toggle text-white" id="profile-menu" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= current_user.email %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="profile-menu">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+          </div>
+        <% else %>
+          <%= link_to 'Sign in', users_sign_in_path, class: 'text-white btn me-2' %>
+          <%= link_to 'Sign up', users_sign_up_path, class: 'btn btn-outline-light' %>
+        <% end %>
       </div>
     </div>
   </div>
