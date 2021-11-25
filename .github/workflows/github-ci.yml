@@ -103,8 +103,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-              wget https://github.com/alexiscrack3/roadev/blob/main/docker-compose.yml -O docker-compose.yml
-              wget https://github.com/alexiscrack3/roadev/blob/main/docker-compose.prod.yml -O docker-compose.prod.yml
+              wget https://raw.githubusercontent.com/alexiscrack3/roadev/main/docker-compose.yml -O docker-compose.yml
+              wget https://raw.githubusercontent.com/alexiscrack3/roadev/main/docker-compose.prod.yml -O docker-compose.prod.yml
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker ps
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker-compose down
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker ps
