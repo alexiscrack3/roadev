@@ -8,89 +8,89 @@ env:
   IMAGE_NAME: alexiscrack3/roadev:latest
 
 jobs:
-  # unit-tests:
-  #   runs-on: ubuntu-18.04
-  #   name: unit tests
-  #   steps:
-  #     - name: Check out repository
-  #       uses: actions/checkout@v2
+  unit-tests:
+    runs-on: ubuntu-18.04
+    name: unit tests
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
 
-  #     - name: Set up Ruby
-  #       uses: ruby/setup-ruby@v1
-  #       with:
-  #         # Not needed with a .ruby-version file
-  #         ruby-version: 2.6.3
-  #         # runs 'bundle install' and caches installed gems automatically
-  #         bundler-cache: true
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          # Not needed with a .ruby-version file
+          ruby-version: 2.6.3
+          # runs 'bundle install' and caches installed gems automatically
+          bundler-cache: true
 
-  #     - name: Install dependencies
-  #       run: |
-  #         gem install bundler
-  #         bundler install
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundler install
 
-  #     - name: Create database
-  #       run: |
-  #         bin/rails db:create RAILS_ENV=test
-  #         bin/rails db:migrate RAILS_ENV=test
+      - name: Create database
+        run: |
+          bin/rails db:create RAILS_ENV=test
+          bin/rails db:migrate RAILS_ENV=test
 
-  #     - name: Install webpack dependencies
-  #       run: |
-  #         bin/rails webpacker:install
+      - name: Install webpack dependencies
+        run: |
+          bin/rails webpacker:install
 
-  #     - name: Run tests
-  #       run: |
-  #         bin/rails test:coverage
+      - name: Run tests
+        run: |
+          bin/rails test:coverage
 
-  #     - name: Upload coverage results
-  #       uses: actions/upload-artifact@master
-  #       if: always()
-  #       with:
-  #         name: coverage-report
-  #         path: coverage
+      - name: Upload coverage results
+        uses: actions/upload-artifact@master
+        if: always()
+        with:
+          name: coverage-report
+          path: coverage
 
-  # linter:
-  #   runs-on: ubuntu-18.04
-  #   steps:
-  #     - name: Check out repository
-  #       uses: actions/checkout@v2
+  linter:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
 
-  #     - name: Set up Ruby
-  #       uses: ruby/setup-ruby@v1
-  #       with:
-  #         # Not needed with a .ruby-version file
-  #         ruby-version: 2.6.3
-  #         # runs 'bundle install' and caches installed gems automatically
-  #         bundler-cache: true
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          # Not needed with a .ruby-version file
+          ruby-version: 2.6.3
+          # runs 'bundle install' and caches installed gems automatically
+          bundler-cache: true
 
-  #     - name: Install Rubocop
-  #       run: gem install rubocop-github
+      - name: Install Rubocop
+        run: gem install rubocop-github
 
-  #     - name: Run linter
-  #       run: rubocop
+      - name: Run linter
+        run: rubocop
 
-  # build:
-  #   runs-on: ubuntu-18.04
-  #   needs: unit-tests
-  #   steps:
-  #     - name: Check out repository
-  #       uses: actions/checkout@v2
+  build:
+    runs-on: ubuntu-18.04
+    needs: unit-tests
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
 
-  #     - name: Login to DockerHub
-  #       uses: docker/login-action@v1
-  #       with:
-  #         username: ${{ secrets.DOCKERHUB_USERNAME }}
-  #         password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-  #     - name: Build and push
-  #       id: docker_build
-  #       uses: docker/build-push-action@v2
-  #       with:
-  #         push: true
-  #         tags: ${{ env.IMAGE_NAME }}
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ${{ env.IMAGE_NAME }}
 
   deploy:
     runs-on: ubuntu-18.04
-    # needs: build
+    needs: build
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
