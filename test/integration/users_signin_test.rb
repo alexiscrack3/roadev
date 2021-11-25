@@ -6,7 +6,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
   end
 
   test "user should be redirected to dashboard when email and password are valid" do
-    get users_sign_in_path
+    get sign_in_path
     assert_template "sessions/sign_in"
     log_in_as(@user.email, password: "password")
     assert logged_in?
@@ -17,7 +17,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
   end
 
   test "user should be redirected to login when email is valid and password is invalid" do
-    get users_sign_in_path
+    get sign_in_path
     assert_template "sessions/sign_in"
     log_in_as(@user.email, password: "invalid")
     assert_not logged_in?
@@ -26,7 +26,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
   end
 
   test "user should be redirected to login when email is invalid and password is valid" do
-    get users_sign_in_path
+    get sign_in_path
     assert_template "sessions/sign_in"
     log_in_as("invalid", password: "password")
     assert_not logged_in?
@@ -35,7 +35,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
   end
 
   test "user should be signed out after " do
-    get users_sign_in_path
+    get sign_in_path
     assert_template "sessions/sign_in"
     log_in_as(@user.email, password: "password")
     assert logged_in?
@@ -43,17 +43,17 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template "dashboard/index"
     assert flash.empty?
-    assert_select "a[href=?]", users_sign_in_path, count: 0
-    assert_select "a[href=?]", users_sign_up_path, count: 0
-    assert_select "a[href=?]", users_sign_out_path
+    assert_select "a[href=?]", sign_in_path, count: 0
+    assert_select "a[href=?]", sign_up_path, count: 0
+    assert_select "a[href=?]", sign_out_path
     # assert_select "a[href=?]", user_path(@user)
-    delete users_sign_out_path
+    delete sign_out_path
     assert_not logged_in?
     assert_redirected_to root_url
     follow_redirect!
-    assert_select "a[href=?]", users_sign_in_path
-    assert_select "a[href=?]", users_sign_up_path
-    assert_select "a[href=?]", users_sign_out_path,      count: 0
+    assert_select "a[href=?]", sign_in_path
+    assert_select "a[href=?]", sign_up_path
+    assert_select "a[href=?]", sign_out_path,      count: 0
     # assert_select "a[href=?]", user_path(@user), count: 0
   end
 

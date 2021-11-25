@@ -28,6 +28,6 @@ class ActionDispatch::IntegrationTest
       password: password,
       remember_me: remember_me
     }
-    post users_sign_in_path, params: { session: session }
+    post sign_in_path, params: { session: session }
   end
 end
