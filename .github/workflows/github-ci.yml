@@ -128,10 +128,17 @@ jobs:
           script: |
               wget https://raw.githubusercontent.com/alexiscrack3/roadev/main/docker-compose.yml -O docker-compose.yml
               wget https://raw.githubusercontent.com/alexiscrack3/roadev/main/docker-compose.prod.yml -O docker-compose.prod.yml
+              echo "=== DOCKER PS ==="
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker ps
+              echo "=== DOCKER-COMPOSE DOWN ==="
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker-compose down
+              echo "=== DOCKER PS ==="
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker ps
+              echo "=== DOCKER PULL ==="
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker pull ${{ env.IMAGE_NAME }}
+              echo "=== DOCKER-COMPOSE UP ==="
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker-compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env up -d
+              echo "=== PRINTING DANGLING IMAGES ==="
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker images -qa --filter "dangling=true"
+              echo "=== REMOVING DANGLING IMAGES ==="
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker images -qa --filter "dangling=true" | xargs --no-run-if-empty sudo docker rmi
