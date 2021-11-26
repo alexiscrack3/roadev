@@ -13,7 +13,7 @@ jobs:
     name: unit tests
     services:
       # Label used to access the service container
-      postgres:
+      db:
         # Docker Hub image
         image: postgres:14-alpine
         env:
@@ -45,13 +45,11 @@ jobs:
 
       - name: Create database
         env:
-          # The hostname used to communicate with the PostgreSQL service container
-          POSTGRES_HOST: postgres
-          # The default PostgreSQL port
-          POSTGRES_PORT: 5432
-          POSTGRES_DB: roadev_test
+          POSTGRES_HOST: db
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: roadev_test
+          POSTGRES_PORT: 5432
         run: |
           RAILS_ENV=test bin/rails db:create
           RAILS_ENV=test bin/rails db:migrate
