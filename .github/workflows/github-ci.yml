@@ -31,13 +31,13 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          # Not needed with a .ruby-version file
-          ruby-version: 2.6.3
-          # runs 'bundle install' and caches installed gems automatically
-          bundler-cache: true
+      # - name: Set up Ruby
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     # Not needed with a .ruby-version file
+      #     ruby-version: 2.6.3
+      #     # runs 'bundle install' and caches installed gems automatically
+      #     bundler-cache: true
 
       - name: Install dependencies
         run: |
