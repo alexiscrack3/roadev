@@ -11,6 +11,7 @@ jobs:
   unit-tests:
     runs-on: ubuntu-18.04
     name: unit tests
+    container: ruby:2.6.3-alpine
     services:
       # Label used to access the service container
       db:
