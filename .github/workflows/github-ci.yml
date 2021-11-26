@@ -11,15 +11,17 @@ jobs:
   unit-tests:
     runs-on: ubuntu-18.04
     name: unit tests
+    env:
+      POSTGRES_HOST: localhost
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: roadev_test
+      POSTGRES_PORT: 5432
     services:
       # Label used to access the service container
       db:
         # Docker Hub image
         image: postgres:14-alpine
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: roadev_test
         ports:
           - 5432:5432
         # Set health checks to wait until postgres has started
@@ -45,20 +47,14 @@ jobs:
           gem install bundler
           bundler install
 
-      - name: Create database
-        env:
-          POSTGRES_HOST: localhost
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: roadev_test
-          POSTGRES_PORT: 5432
-        run: |
-          RAILS_ENV=test bin/rails db:create
-          RAILS_ENV=test bin/rails db:migrate
-
       - name: Install webpack dependencies
         run: |
           bin/rails webpacker:install
+
+      - name: Create database
+        run: |
+          RAILS_ENV=test bin/rails db:create
+          RAILS_ENV=test bin/rails db:migrate
 
       - name: Run tests
         run: |
