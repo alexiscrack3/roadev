@@ -134,5 +134,4 @@ jobs:
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker pull ${{ env.IMAGE_NAME }}
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker-compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env up -d
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker images -qa --filter "dangling=true"
-              echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker rmi $(sudo docker images -qa --filter "dangling=true")
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker images -qa --filter "dangling=true" | xargs --no-run-if-empty sudo docker rmi
