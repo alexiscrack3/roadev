@@ -6,14 +6,24 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: roadev
-    # depends_on:
-    #   - db
-    environment:
-      RAILS_MASTER_KEY: "${RAILS_MASTER_KEY:-empty}"
+    depends_on:
+      - db
+    env_file:
+      - .env
+    networks:
+      - roadev-network
+
+  db:
+    image: postgres:14-alpine
+    container_name: db
+    env_file:
+      - .env
+    ports:
+      - 5432:5432
     networks:
       - roadev-network
     volumes:
-      - roadev-volume:/usr/src
+      - roadev-volume:/var/lib/postgresql/data
 
 networks:
   roadev-network:

@@ -17,8 +17,10 @@ RUN apk update \
     && apk add vim \
     && apk add nodejs \
     && apk add yarn \
-    && apk add sqlite \
-    && apk add sqlite-dev \
+    # && apk add sqlite \
+    # && apk add sqlite-dev \
+    && apk add postgresql-client \
+    && apk add postgresql-dev \
     && apk add tzdata
 
 WORKDIR /usr/src
@@ -35,9 +37,13 @@ COPY ["package.json", "yarn.lock", "/usr/src/"]
 
 RUN yarn install --production
 
-COPY [".", "/usr/src"]
+COPY ["docker-entrypoint.sh", "/usr/bin/"]
 
-RUN SECRET_KEY_BASE=`bin/rails secret` bin/rails db:setup
+RUN chmod +x /usr/bin/docker-entrypoint.sh
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+COPY [".", "/usr/src"]
 
 RUN SECRET_KEY_BASE=`bin/rails secret` bin/rails assets:precompile
 
