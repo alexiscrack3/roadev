@@ -22,6 +22,8 @@ class SessionsController < ApplicationController
   def create_user
     @user = User.new(user_params)
     if @user.save
+      reset_session
+      log_in @user
       flash[:success] = "Welcome to the Dashboard!"
       redirect_to dashboard_url
       # redirect_to user_url(@user) # or redirect_to @user
