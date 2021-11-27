@@ -34,7 +34,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
   end
 
-  test "user should be signed out after " do
+  test "user should be redirected to root after signing out" do
     get sign_in_path
     assert_template "sessions/sign_in"
     log_in_as(@user.email, password: "password")
@@ -46,7 +46,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", sign_in_path, count: 0
     assert_select "a[href=?]", sign_up_path, count: 0
     assert_select "a[href=?]", sign_out_path
-    # assert_select "a[href=?]", user_path(@user)
+    assert_select "a[href=?]", user_path(@user)
     delete sign_out_path
     assert_not logged_in?
     assert_redirected_to root_url
@@ -54,7 +54,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", sign_in_path
     assert_select "a[href=?]", sign_up_path
     assert_select "a[href=?]", sign_out_path,      count: 0
-    # assert_select "a[href=?]", user_path(@user), count: 0
+    assert_select "a[href=?]", user_path(@user), count: 0
   end
 
   test "user id and token should be stored in cookie when remember_me option is enabled" do
