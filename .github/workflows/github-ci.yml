@@ -125,6 +125,8 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
+          debug: true
+          timeout: 5m
           script: |
               wget https://raw.githubusercontent.com/alexiscrack3/roadev/main/docker-compose.yml -O docker-compose.yml
               wget https://raw.githubusercontent.com/alexiscrack3/roadev/main/docker-compose.prod.yml -O docker-compose.prod.yml
