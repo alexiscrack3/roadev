@@ -141,6 +141,7 @@ jobs:
               echo "=== PRINTING DANGLING IMAGES ==="
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker images -qa --filter "dangling=true"
               echo "=== REMOVING DANGLING IMAGES ==="
-              echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker images -qa --filter "dangling=true" | xargs --no-run-if-empty sudo docker rmi
+              # echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker images -qa --filter "dangling=true" | xargs --no-run-if-empty sudo docker rmi
+              echo ${{ secrets.SSH_PASSWORD }} | yes | sudo -S -k docker images prune
               echo "=== DOCKER-COMPOSE UP ==="
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker-compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env up -d
