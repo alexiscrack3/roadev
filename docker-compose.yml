@@ -24,6 +24,7 @@ services:
       - roadev-network
     volumes:
       - roadev-volume:/var/lib/postgresql/data
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
 networks:
   roadev-network:

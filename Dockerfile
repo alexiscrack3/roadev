@@ -9,8 +9,8 @@ ENV NODE_ENV=production
 ENV RAILS_SERVE_STATIC_FILES=true
 
 # ENV RAILS_LOG_TO_STDOUT true
-
 RUN apk update \
+    # required for nokogiri gem
     && apk add build-base \
     && apk add less \
     && apk add tree \
@@ -20,6 +20,7 @@ RUN apk update \
     # && apk add sqlite \
     # && apk add sqlite-dev \
     && apk add postgresql-client \
+    # required for pg gem
     && apk add postgresql-dev \
     && apk add tzdata
 
