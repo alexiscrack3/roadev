@@ -26,6 +26,19 @@ services:
       - roadev-volume:/var/lib/postgresql/data
       # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
+  nginx:
+    build:
+      context: nginx
+      dockerfile: nginx.dockerfile
+    container_name: nginx
+    restart: always
+    depends_on:
+      - roadev
+    ports:
+      - 80:80
+    networks:
+      - roadev-network
+
 networks:
   roadev-network:
     driver: bridge

@@ -6,7 +6,8 @@ ENV RAILS_ENV=production
 
 ENV NODE_ENV=production
 
-ENV RAILS_SERVE_STATIC_FILES=true
+# enable rails to serve static assets by setting ENV['RAILS_SERVE_STATIC_FILES'] to true
+ENV RAILS_SERVE_STATIC_FILES=false
 
 # ENV RAILS_LOG_TO_STDOUT true
 RUN apk update \
@@ -46,7 +47,7 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 
 COPY [".", "/usr/src"]
 
-RUN SECRET_KEY_BASE=`bin/rails secret` bin/rails assets:precompile
+# RUN SECRET_KEY_BASE=`bin/rails secret` bin/rails assets:precompile
 
 EXPOSE 3000
 
