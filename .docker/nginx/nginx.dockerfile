@@ -24,6 +24,10 @@ RUN bundle config set without development test
 
 RUN bundle install
 
+COPY ["package.json", "yarn.lock", "/usr/src/"]
+
+RUN yarn install --production
+
 COPY [".", "/usr/src"]
 
 RUN SECRET_KEY_BASE=`bin/rails secret` bin/rails assets:precompile
