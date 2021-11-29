@@ -4,43 +4,33 @@ services:
   roadev:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: .docker/base/Dockerfile
     container_name: roadev
     depends_on:
       - db
     env_file:
-      - .env
+      - .docker/base/.env
     networks:
       - roadev-network
+      - another-network
 
   db:
     image: postgres:14-alpine
     container_name: db
     env_file:
-      - .env
+      - .docker/base/.env
     ports:
       - 5432:5432
     networks:
-      - roadev-network
+      - another-network
     volumes:
       - roadev-volume:/var/lib/postgresql/data
       # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
-  nginx:
-    build:
-      context: nginx
-      dockerfile: nginx.dockerfile
-    container_name: nginx
-    restart: always
-    depends_on:
-      - roadev
-    ports:
-      - 80:80
-    networks:
-      - roadev-network
-
 networks:
   roadev-network:
+    driver: bridge
+  another-network:
     driver: bridge
 
 volumes:

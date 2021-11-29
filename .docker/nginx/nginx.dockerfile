@@ -4,7 +4,7 @@ ENV ROOT_DIR=/usr/share/nginx/html
 
 WORKDIR $ROOT_DIR
 
-COPY nginx.conf /tmp/default.conf
+COPY .docker/nginx/nginx.conf /tmp/default.conf
 
 # copy over static (compiled) assets
 COPY public public/

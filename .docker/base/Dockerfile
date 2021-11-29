@@ -10,6 +10,7 @@ ENV NODE_ENV=production
 ENV RAILS_SERVE_STATIC_FILES=false
 
 # ENV RAILS_LOG_TO_STDOUT true
+
 RUN apk update \
     # required for nokogiri gem
     && apk add build-base \
@@ -39,7 +40,7 @@ COPY ["package.json", "yarn.lock", "/usr/src/"]
 
 RUN yarn install --production
 
-COPY ["docker-entrypoint.sh", "/usr/bin/"]
+COPY [".docker/base/docker-entrypoint.sh", "/usr/bin/"]
 
 RUN chmod +x /usr/bin/docker-entrypoint.sh
 
