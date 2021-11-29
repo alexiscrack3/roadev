@@ -110,6 +110,7 @@ jobs:
         with:
           push: true
           tags: ${{ env.IMAGE_NAME }}
+          file: .docker/base/Dockerfile
 
   deploy:
     runs-on: ubuntu-18.04
