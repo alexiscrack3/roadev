@@ -10,7 +10,7 @@ env:
 jobs:
   unit-tests:
     runs-on: ubuntu-18.04
-    name: unit tests
+    name: tests
     env:
       POSTGRES_HOST: localhost
       POSTGRES_USER: postgres
