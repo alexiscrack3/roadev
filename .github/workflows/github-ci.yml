@@ -152,7 +152,7 @@ jobs:
               wget https://raw.githubusercontent.com/alexiscrack3/roadev/main/docker-compose.yml -O docker-compose.yml
               wget https://raw.githubusercontent.com/alexiscrack3/roadev/main/docker-compose.prod.yml -O docker-compose.prod.yml
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker ps
-              echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker-compose down
+              echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker-compose -f docker-compose.yml -f docker-compose.prod.yml down
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker ps
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker pull ${{ env.IMAGE_NAME }}
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker pull ${{ env.NGINX_IMAGE_NAME }}
