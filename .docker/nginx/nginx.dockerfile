@@ -4,6 +4,9 @@ ENV RAILS_ENV=production
 
 ENV NODE_ENV=production
 
+# maybe?
+ENV RAILS_SERVE_STATIC_FILES=false
+
 RUN apk update \
     && apk add build-base \
     && apk add nodejs \
