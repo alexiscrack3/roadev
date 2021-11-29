@@ -5,14 +5,4 @@ services:
     image: alexiscrack3/roadev:latest
 
   nginx:
-    build:
-      context: .
-      dockerfile: .docker/nginx/nginx.dockerfile
-    container_name: nginx
-    restart: always
-    depends_on:
-      - roadev
-    ports:
-      - 80:80
-    networks:
-      - roadev-network
+    image: alexiscrack3/roadev-nginx:latest
