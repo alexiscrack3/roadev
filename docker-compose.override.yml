@@ -2,5 +2,13 @@ version: "3.8"
 
 services:
   roadev:
+    build:
+      context: .
+      dockerfile: .docker/base/Dockerfile
     ports:
       - 3000:3000
+
+  nginx:
+    build:
+      context: .
+      dockerfile: .docker/nginx/nginx.dockerfile

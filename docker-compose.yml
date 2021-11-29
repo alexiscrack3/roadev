@@ -2,9 +2,6 @@ version: "3.8"
 
 services:
   roadev:
-    build:
-      context: .
-      dockerfile: .docker/base/Dockerfile
     container_name: roadev
     depends_on:
       - db
@@ -28,9 +25,6 @@ services:
       # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   nginx:
-    build:
-      context: .
-      dockerfile: .docker/nginx/nginx.dockerfile
     container_name: nginx
     restart: always
     depends_on:
