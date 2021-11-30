@@ -46,6 +46,8 @@ COPY .docker/nginx/nginx.conf /tmp/default.conf
 # copy over static (compiled) assets
 COPY --from=builder /usr/src/public public/
 
+RUN mkdir log
+
 # 1. substitutes variable references in the Nginx config template for real values from the environment
 # 2. puts the final config in its place
 RUN envsubst '$ROOT_DIR' < /tmp/default.conf > /etc/nginx/conf.d/default.conf
