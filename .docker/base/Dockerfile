@@ -32,6 +32,12 @@ COPY ["Gemfile", "Gemfile.lock", "/usr/src/"]
 
 RUN gem install bundler:2.1.2
 
+# when the Gemfile is changed and the lockfile has not been updated, running Bundler commands will be blocked
+RUN bundle config set frozen true
+
+# when the Gemfile is changed and the lockfile has not been updated, running Bundler commands will be blocked
+RUN bundle config set deployment true
+
 RUN bundle config set without development test
 
 RUN bundle install
