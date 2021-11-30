@@ -6,7 +6,8 @@ services:
     depends_on:
       - db
     env_file:
-      - .docker/base/.env
+      - .docker/.env.rails
+      - .docker/base/.env.db
     networks:
       - roadev-network
       - another-network
@@ -15,7 +16,7 @@ services:
     image: postgres:14-alpine
     container_name: db
     env_file:
-      - .docker/base/.env
+      - .docker/base/.env.db
     ports:
       - 5432:5432
     networks:
@@ -29,6 +30,8 @@ services:
     restart: always
     depends_on:
       - roadev
+    env_file:
+      - .docker/.env.rails
     ports:
       - 80:80
     networks:

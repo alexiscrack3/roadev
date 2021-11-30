@@ -48,8 +48,6 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 
 COPY [".", "/usr/src"]
 
-# RUN SECRET_KEY_BASE=`bin/rails secret` bin/rails assets:precompile
-
 EXPOSE 3000
 
 CMD ["bin/rails", "server", "-b", "0.0.0.0"]

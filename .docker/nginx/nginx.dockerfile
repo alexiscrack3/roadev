@@ -1,5 +1,9 @@
 FROM ruby:2.6.3-alpine as builder
 
+ARG RAILS_MASTER_KEY
+
+ENV RAILS_MASTER_KEY="${RAILS_MASTER_KEY}"
+
 ENV RAILS_ENV=production
 
 ENV NODE_ENV=production
