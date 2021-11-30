@@ -30,7 +30,7 @@ WORKDIR /usr/src
 
 COPY ["Gemfile", "Gemfile.lock", "/usr/src/"]
 
-RUN gem install bundler:2.1.2
+RUN gem install bundler:2.2.31
 
 # when the Gemfile is changed and the lockfile has not been updated, running Bundler commands will be blocked
 RUN bundle config set frozen true

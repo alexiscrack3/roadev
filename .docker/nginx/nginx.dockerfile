@@ -22,7 +22,7 @@ WORKDIR /usr/src
 
 COPY ["Gemfile", "Gemfile.lock", "/usr/src/"]
 
-RUN gem install bundler:2.1.2
+RUN gem install bundler:2.2.31
 
 RUN bundle config set without development test
 
