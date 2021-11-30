@@ -9,7 +9,7 @@ ENV NODE_ENV=production
 # enable rails to serve static assets by setting ENV['RAILS_SERVE_STATIC_FILES'] to true
 ENV RAILS_SERVE_STATIC_FILES=false
 
-# ENV RAILS_LOG_TO_STDOUT true
+ENV RAILS_LOG_TO_STDOUT=true
 
 RUN apk update \
     # required for nokogiri gem
