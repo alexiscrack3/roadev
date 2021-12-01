@@ -127,6 +127,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
+              wget https://raw.githubusercontent.com/alexiscrack3/roadev/main/.docker/nginx/nginx.conf -O .docker/nginx/nginx.conf
               wget https://raw.githubusercontent.com/alexiscrack3/roadev/main/docker-compose.yml -O docker-compose.yml
               wget https://raw.githubusercontent.com/alexiscrack3/roadev/main/docker-compose.prod.yml -O docker-compose.prod.yml
               echo ${{ secrets.SSH_PASSWORD }} | sudo -S -k docker ps
