@@ -4,6 +4,7 @@ set -e
 
 SECRET_KEY_BASE=`bin/rails secret`
 
+# generate static files at runtime
 bin/rails assets:precompile
 
 bin/rails db:create

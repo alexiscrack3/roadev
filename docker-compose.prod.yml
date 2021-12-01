@@ -3,6 +3,3 @@ version: "3.8"
 services:
   roadev:
     image: alexiscrack3/roadev:latest
-
-  nginx:
-    image: alexiscrack3/roadev-nginx:latest
