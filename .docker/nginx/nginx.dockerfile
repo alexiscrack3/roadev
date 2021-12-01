@@ -16,5 +16,5 @@ RUN envsubst '$ROOT_DIR' < /tmp/default.conf > /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
-# CMD ["nginx", "-g", "daemon off;"]
-CMD ["nginx-debug", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx-debug", "-g", "daemon off;"]
