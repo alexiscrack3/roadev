@@ -2,9 +2,13 @@
 
 set -e
 
-SECRET_KEY_BASE=`bin/rails secret` bin/rails db:create
+SECRET_KEY_BASE=`bin/rails secret`
 
-SECRET_KEY_BASE=`bin/rails secret` bin/rails db:migrate
+bin/rails assets:precompile
+
+bin/rails db:create
+
+bin/rails db:migrate
 
 # exec the container's main process (what's set as CMD in the Dockerfile).
 exec "$@"
