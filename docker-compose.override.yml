@@ -12,5 +12,3 @@ services:
     build:
       context: .
       dockerfile: .docker/nginx/nginx.dockerfile
-      args:
-        RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
