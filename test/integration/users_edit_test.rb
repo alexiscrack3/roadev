@@ -5,28 +5,23 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user = users(:user_a)
   end
 
-  # test "user should be successful edit with friendly forwarding" do
-  #   get edit_user_path(@user)
-  #   log_in_as(@user)
-  #   assert_redirected_to edit_user_url(@user)
-  #   name = "Foo Bar"
-  #   email = "foo@bar.com"
-  #   user = {
-  #     name: name,
-  #     email: email,
-  #     password: "",
-  #     password_confirmation: ""
-  #   }
-  #   patch user_path(@user), params: { user: user }
-  #   assert_not flash.empty?
-  #   assert_redirected_to @user
-  #   @user.reload
-  #   assert_equal name,  @user.name
-  #   assert_equal email, @user.email
-  # end
+  test "user should be redirected to the intended destination" do
+    get edit_user_path(@user)
+    log_in_as(@user.email, password: "password")
+    assert_redirected_to edit_user_url(@user)
+    first_name = "new"
+    user = {
+      first_name: first_name,
+    }
+    patch user_path(@user), params: { user: user }
+    assert_not flash.empty?
+    assert_redirected_to @user
+    @user.reload
+    assert_equal first_name, @user.first_name
+  end
 
   test "user should be redirected to profile when user info is valid" do
-    log_in_as(@user)
+    log_in_as(@user.email, password: "password")
     get edit_user_path(@user)
     assert_template "users/edit"
     user = {
@@ -40,7 +35,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "user should be sent back to edit page when user info is not valid" do
-    log_in_as(@user)
+    log_in_as(@user.email, password: "password")
     get edit_user_path(@user)
     assert_template "users/edit"
     user = {

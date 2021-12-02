@@ -10,9 +10,9 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     assert_template "sessions/sign_in"
     log_in_as(@user.email, password: "password")
     assert logged_in?
-    assert_redirected_to dashboard_path
+    assert_redirected_to @user
     follow_redirect!
-    assert_template "dashboard/index"
+    assert_template "users/show"
     assert flash.empty?
   end
 
@@ -39,9 +39,9 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     assert_template "sessions/sign_in"
     log_in_as(@user.email, password: "password")
     assert logged_in?
-    assert_redirected_to dashboard_path
+    assert_redirected_to @user
     follow_redirect!
-    assert_template "dashboard/index"
+    assert_template "users/show"
     assert flash.empty?
     assert_select "a[href=?]", sign_in_path, count: 0
     assert_select "a[href=?]", sign_up_path, count: 0

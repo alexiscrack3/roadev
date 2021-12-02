@@ -8,4 +8,4 @@ user_b:
   first_name: John
   last_name: Smith
   email: john.smith@gmail.com
-  password_digest: password
+  password_digest: <%= User.digest('password') %>

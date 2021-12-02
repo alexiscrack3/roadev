@@ -2,7 +2,7 @@ require "test_helper"
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "sign up endpoint should return response" do
-    get sign_in_path
+    get sign_up_path
     assert_response :success
   end
 
