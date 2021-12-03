@@ -12,7 +12,7 @@ gem "puma", "~> 5.0"
 # Use SCSS for stylesheets
 gem "sass-rails", ">= 6"
 # Use Bootstrap for responsive design
-gem "bootstrap", "~> 5.1.0"
+gem "bootstrap", "~> 5.1.3"
 # Use jQuery for Bootstrap
 gem "jquery-rails"
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
