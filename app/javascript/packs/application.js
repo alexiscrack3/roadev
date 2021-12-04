@@ -8,9 +8,12 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-import "jquery"
-import "bootstrap"
+import * as Bootstrap from "bootstrap"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// include bootstrap in global and window scope so you can access it globally in the web browser
+global.bootstrap = Bootstrap;
+window.bootstrap = Bootstrap;
