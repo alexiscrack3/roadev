@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :learning_paths
+  end
   root "home#index"
   get "/dashboard", to: "dashboard#index"
   scope "/users" do

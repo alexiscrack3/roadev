@@ -1,0 +1,6 @@
+<% provide(:modal_title, "Learning Path") %>
+
+$("#modal-placeholder").html("<%= j render("learning_path", learning_path: @learning_path) %>")
+
+var myModal = new bootstrap.Modal(document.getElementById("myModal"));
+myModal.toggle();

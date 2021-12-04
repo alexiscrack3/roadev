@@ -1,0 +1,7 @@
+<tr id="learning-path-<%= learning_path.id %>">
+  <td><%= learning_path.title %></td>
+  <td><%= learning_path.description %></td>
+  <td><%= link_to 'Show', [:admin, learning_path], remote: true %></td>
+  <td><%= link_to 'Edit', edit_admin_learning_path_path(learning_path), remote: true %></td>
+  <td><%= link_to 'Destroy', [:admin, learning_path], method: :delete, data: { confirm: 'Are you sure?', remote: true } %></td>
+</tr>

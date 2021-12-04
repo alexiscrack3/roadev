@@ -1,0 +1,17 @@
+<%= form_with(url: [:admin, learning_path], model: learning_path) do |form| %>
+  <% render "shared/error_messages", object: learning_path %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

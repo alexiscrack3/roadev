@@ -1,0 +1,4 @@
+$("#modal-placeholder").html("<%= j render("modal_form", learning_path: @learning_path) %>")
+
+var myModal = new bootstrap.Modal(document.getElementById("myModal"));
+myModal.toggle();

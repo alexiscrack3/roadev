@@ -1,0 +1,12 @@
+<p>
+  <strong>Title:</strong>
+  <%= @learning_path.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @learning_path.description %>
+</p>
+
+<%= link_to 'Edit', edit_admin_learning_path_path(@learning_path) %> |
+<%= link_to 'Back', admin_learning_paths_path %>

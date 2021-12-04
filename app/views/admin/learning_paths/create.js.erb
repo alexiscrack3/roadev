@@ -1,0 +1,6 @@
+<% if @learning_path.errors.any? %>
+    alert("Something went wrong");
+<% else %>
+    $("#learning-paths-table tbody").prepend("<%= j render("learning_path_row", learning_path: @learning_path) %>");
+    myModal.toggle();
+<% end %>

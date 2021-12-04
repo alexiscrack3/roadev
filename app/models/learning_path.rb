@@ -9,4 +9,5 @@
 #  updated_at  :datetime         not null
 #
 class LearningPath < ApplicationRecord
+  validates :title, presence: true
 end
