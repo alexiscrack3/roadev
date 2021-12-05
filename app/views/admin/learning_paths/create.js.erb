@@ -1,5 +1,5 @@
 <% if @learning_path.errors.any? %>
-    alert("Something went wrong");
+    $("#learning-path-errors").html("<%= j render("shared/error_messages", object: @learning_path) %>")
 <% else %>
     $("#learning-paths-table tbody").prepend("<%= j render("learning_path_row", learning_path: @learning_path) %>");
     myModal.toggle();
