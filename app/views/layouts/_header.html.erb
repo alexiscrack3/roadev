@@ -5,7 +5,14 @@
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><%= link_to "Dashboard", dashboard_path, class: "nav-link px-2 text-white" %></li>
-        <li><%= link_to "Admin", admin_learning_paths_path, class: "nav-link px-2 text-white" %></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Admin
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><%= link_to "Learning Paths", admin_learning_paths_path, class: "dropdown-item" %></li>
+          </ul>
+        </li>
       </ul>
 
       <div class="text-end">
@@ -18,7 +25,6 @@
               <li><%= link_to "Profile", user_path(current_user), class: "dropdown-item" %></li>
               <li><hr class="dropdown-divider"></li>
               <li><%= link_to "Sign out", sign_out_path, class: "dropdown-item", method: :delete %></li>
-
             </ul>
           </div>
         <% else %>
