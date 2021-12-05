@@ -1,4 +1,11 @@
-<h1>Learning Paths</h1>
+<div class="row">
+  <div class="col">
+    <h1>Learning Paths</h1>
+  </div>
+  <div class="col text-end">
+    <%= link_to 'New Learning Path', new_admin_learning_path_path, class: "btn btn-primary", remote: true %>
+  </div>
+</div>
 
 <table id="learning-paths-table" class="table table-striped">
   <thead>
@@ -15,9 +22,5 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Learning Path', new_admin_learning_path_path, remote: true %>
 
 <div id="modal-placeholder"></div>
