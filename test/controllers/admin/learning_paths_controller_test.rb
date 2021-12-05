@@ -16,7 +16,7 @@ class Admin::LearningPathsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create learning_path" do
-    assert_difference('LearningPath.count') do
+    assert_difference("LearningPath.count") do
       post admin_learning_paths_url, params: { learning_path: {  } }
     end
 
@@ -39,7 +39,7 @@ class Admin::LearningPathsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy learning_path" do
-    assert_difference('LearningPath.count', -1) do
+    assert_difference("LearningPath.count", -1) do
       delete admin_learning_path_url(@learning_path)
     end
 
