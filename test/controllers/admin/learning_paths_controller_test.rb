@@ -17,10 +17,14 @@ class Admin::LearningPathsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create learning_path" do
     assert_difference("LearningPath.count") do
-      post admin_learning_paths_url, params: { learning_path: {  } }
+      learning_path = {
+        title: "title",
+        description: "description"
+      }
+      post admin_learning_paths_url, params: { learning_path: learning_path }
     end
 
-    assert_redirected_to learning_path_url(LearningPath.last)
+    assert_redirected_to [:admin, LearningPath.last]
   end
 
   test "should show learning_path" do
@@ -34,8 +38,12 @@ class Admin::LearningPathsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update learning_path" do
-    patch admin_learning_path_url(@learning_path), params: { learning_path: {  } }
-    assert_redirected_to learning_path_url(@learning_path)
+    learning_path = {
+      title: "title",
+      description: "description"
+    }
+    patch admin_learning_path_url(@learning_path), params: { learning_path: learning_path }
+    assert_redirected_to [:admin, @learning_path]
   end
 
   test "should destroy learning_path" do
