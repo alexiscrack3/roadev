@@ -4,3 +4,6 @@ inherit_gem:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+GitHub/InsecureHashAlgorithm:
+  Enabled: false

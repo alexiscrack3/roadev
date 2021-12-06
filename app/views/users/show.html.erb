@@ -23,4 +23,7 @@
     <%= link_to "Edit", edit_user_path(@user) %> |
     <%= link_to "Back", dashboard_path %>
   </div>
+  <div class="col">
+    <%= gravatar_for @user, size: 100 %>
+  </div>
 </div>
