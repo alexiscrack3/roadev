@@ -27,6 +27,8 @@ gem "jbuilder", "~> 2.7"
 gem "bcrypt", "~> 3.1.7"
 # Generates fake data
 gem "faker", "~> 2.19.0"
+# Add Pagination
+gem "kaminari", "~> 1.2.1"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
