@@ -2,10 +2,31 @@ user_a:
   first_name: Foo
   last_name: Bar
   email: foo.bar@gmail.com
-  password_digest: <%= User.digest('password') %>
+  password_digest: <%= User.digest("password") %>
+  admin: true
 
 user_b:
   first_name: John
   last_name: Smith
   email: john.smith@gmail.com
-  password_digest: <%= User.digest('password') %>
+  password_digest: <%= User.digest("password") %>
+
+user_c:
+  first_name: James
+  last_name: Brown
+  email: hands@example.gov
+  password_digest: <%= User.digest("password") %>
+
+user_d:
+  first_name: Ashley
+  last_name: Brooks
+  email: boss@example.gov
+  password_digest: <%= User.digest("password") %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  first_name: <%= "User #{n}" %>
+  last_name: <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest("password") %>
+<% end %>
