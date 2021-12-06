@@ -28,3 +28,22 @@ LearningPath.create!(
     description: Faker::Lorem.sentence
   )
 end
+
+User.delete_all
+
+User.create!(
+  first_name: "Alexis",
+  last_name: "Ortega",
+  email: "alexis@gmail.com",
+  password: "password",
+  admin: true
+)
+
+99.times do
+  User.create!(
+    first_name: Faker::Name.name,
+    last_name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: "password"
+  )
+end

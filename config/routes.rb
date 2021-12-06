@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     post "/sign_in", to: "sessions#authenticate_user"
     delete "/sign_out", to: "sessions#sign_out"
   end
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

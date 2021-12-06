@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">First name</th>
+    <th scope="col">Last Name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Admin</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <%= render @users %>
+  </tbody>
+</table>
+<div class="row">
+  <div class="col users-pagination">
+    <%= paginate @users %>
+  </div>
+</div>
