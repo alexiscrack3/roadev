@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    @users = User.order(:created_at).page params[:page]
+    @users = User.where(activated: true).order(:created_at).page params[:page]
   end
 
   def show

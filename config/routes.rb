@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     delete "/sign_out", to: "sessions#sign_out"
   end
   resources :users, only: [:index, :show, :edit, :update]
+  resources :account_activations, only: [:edit]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
