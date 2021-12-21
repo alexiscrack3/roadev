@@ -2,7 +2,7 @@
 #
 # Table name: learning_paths
 #
-#  id          :integer          not null, primary key
+#  id          :bigint           not null, primary key
 #  title       :string
 #  description :text
 #  created_at  :datetime         not null
