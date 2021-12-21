@@ -2,7 +2,9 @@ class LearningPathsController < ApplicationController
   before_action :set_learning_path, only: %i[ show ]
 
   def show
-    @steps = LearningPathStepSkill.all
+    @steps = LearningPathStepSkill
+      .joins(:skill, [{ learning_path_step: :learning_path }])
+      .includes(:skill, [{ learning_path_step: :learning_path }])
   end
 
   private
