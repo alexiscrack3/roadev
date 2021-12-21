@@ -2,6 +2,7 @@ class LearningPathsController < ApplicationController
   before_action :set_learning_path, only: %i[ show ]
 
   def show
+    @steps = LearningPathStepSkill.all
   end
 
   private

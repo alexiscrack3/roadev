@@ -1,2 +1,6 @@
 <h1><%= @learning_path.title %> Developer</h1>
 <p>Step by step guide to becoming a modern <%= @learning_path.title.downcase %> developer in <%= Time.new.year %> </p>
+
+<% @steps.each do |step| %>
+  <p><%= step.learning_path_step.learning_path.title %> > <%= step.learning_path_step.title %> > <%= step.skill.name %></p>
+<% end %>
