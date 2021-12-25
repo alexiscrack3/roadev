@@ -21,23 +21,50 @@ db_type = SkillType.create!(
 language_type = SkillType.create!(
   name: "Programming Language"
 )
-SkillType.create!(
+message_broker_type = SkillType.create!(
+  name: "Message Broker"
+)
+tool_type = SkillType.create!(
   name: "Tool"
 )
 
-databases = %w[MariaDB MySQL MSSQL Oracle PostgreSQL]
-databases.each do |database|
+relational_databases = %w[ MariaDB MySQL MSSQL Oracle PostgreSQL ]
+relational_databases.each do |database|
   Skill.create!(
     name: database,
     skill_type: db_type
   )
 end
 
-languages = %w[C# Go Java JavaScript Kotlin Python Ruby Swift]
+non_relational_databases = %w[ DynamoDB MongoDB ]
+non_relational_databases.each do |database|
+  Skill.create!(
+    name: database,
+    skill_type: db_type
+  )
+end
+
+languages = %w[ C# Go Java JavaScript Kotlin PHP Python Ruby Rust Swift ]
 languages.each do |language|
   Skill.create!(
     name: language,
     skill_type: language_type
+  )
+end
+
+repositories = %w[ Bitbucket GitHub GitLab ]
+repositories.each do |repository|
+  Skill.create!(
+    name: repository,
+    skill_type: tool_type
+  )
+end
+
+message_brokers = %w[ Kafka RabbitMQ ]
+message_brokers.each do |message_broker|
+  Skill.create!(
+    name: message_broker,
+    skill_type: message_broker_type
   )
 end
 
@@ -61,21 +88,57 @@ relational_databases_step = LearningPathStep.create!(
   learning_path: backend_path
 )
 
+non_relational_databases_step = LearningPathStep.create!(
+  title: "NoSQL Databases",
+  learning_path: backend_path
+)
+
 languages_step = LearningPathStep.create!(
   title: "Programming Languages",
   learning_path: backend_path
 )
 
-Skill.all.where(skill_type: language_type).each do |skill|
+repositories_step = LearningPathStep.create!(
+  title: "Repo Hosting Service",
+  learning_path: backend_path
+)
+
+message_broker_step = LearningPathStep.create!(
+  title: "Message Brokers",
+  learning_path: backend_path
+)
+
+Skill.where(skill_type: db_type).and(Skill.where.not(name: non_relational_databases)).each do |skill|
+  LearningPathStepSkill.create!(
+    learning_path_step: relational_databases_step,
+    skill: skill
+  )
+end
+
+Skill.where(skill_type: db_type).and(Skill.where(name: non_relational_databases)).each do |skill|
+  LearningPathStepSkill.create!(
+    learning_path_step: non_relational_databases_step,
+    skill: skill
+  )
+end
+
+Skill.where(skill_type: language_type).each do |skill|
   LearningPathStepSkill.create!(
     learning_path_step: languages_step,
     skill: skill
   )
 end
 
-Skill.all.where(skill_type: db_type).each do |skill|
+Skill.where(skill_type: tool_type).and(Skill.where(name: repositories)).each do |skill|
   LearningPathStepSkill.create!(
-    learning_path_step: relational_databases_step,
+    learning_path_step: repositories_step,
+    skill: skill
+  )
+end
+
+Skill.where(skill_type: message_broker_type).each do |skill|
+  LearningPathStepSkill.create!(
+    learning_path_step: message_broker_step,
     skill: skill
   )
 end
