@@ -3,6 +3,7 @@ require "test_helper"
 class Admin::LearningPathsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @learning_path = learning_paths(:one)
+    @another_learning_path = learning_paths(:three)
   end
 
   test "should get index" do
@@ -48,7 +49,7 @@ class Admin::LearningPathsControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy learning_path" do
     assert_difference("LearningPath.count", -1) do
-      delete admin_learning_path_url(@learning_path)
+      delete admin_learning_path_url(@another_learning_path)
     end
 
     assert_redirected_to admin_learning_paths_url

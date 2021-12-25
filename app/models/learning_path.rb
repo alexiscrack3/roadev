@@ -10,4 +10,5 @@
 #
 class LearningPath < ApplicationRecord
   validates :title, presence: true
+  # has_many :learning_path_steps, dependent: :delete_all
 end
