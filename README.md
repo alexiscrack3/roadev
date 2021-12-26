@@ -1,5 +1,9 @@
 # Roadev
 
+## What is Roadev?
+
+Roadev is an open-source project based on [roadmap.sh](https://roadmap.sh) to help guide the developers in picking up the path and guide their learnings.
+
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
@@ -35,12 +39,32 @@ bundle install
 yarn install
 ```
 
+Next, migrate the database:
+
+```bash
+rails db:migrate
+```
+
+Seed the database with sample data:
+
+```bash
+rails server
+```
+
 ### Usage
+
+Spin up the db service:
 
 ```bash
 docker-compose up -d db
 ```
 
+Run the app in a local server:
+
+```bash
+rails server
+```
+
 ## License
 
-Licensed under MIT License Copyright (c) 2021 Alexis Ortega. See [LICENSE.txt](LICENSE) for further details.
+Licensed under MIT License. See [LICENSE.txt](LICENSE) for further details.
