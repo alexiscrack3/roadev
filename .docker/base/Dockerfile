@@ -1,4 +1,4 @@
-FROM ruby:2.6.3-alpine
+FROM ruby:2.7.0-alpine
 
 LABEL maintainer="Alexis Ortega <alexis.oc3@gmail.com>"
 
