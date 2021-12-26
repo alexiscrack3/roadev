@@ -1,24 +1,46 @@
-# README
+# Roadev
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Table of Contents
 
-Things you may want to cover:
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+  - [Usage](#usage)
+- [License](#license)
 
-* Ruby version
+## Prerequisites
 
-* System dependencies
+- Ruby 2.7.0
+- Rails 6.1.4
+- Node.js 12.18.3+
+- Yarn
+- Docker
 
-* Configuration
+## Installation
 
-* Database creation
+Clone the repo and cd into the directory:
 
-* Database initialization
+```bash
+git clone https://github.com/alexiscrack3/roadev
+```
 
-* How to run the test suite
+```bash
+cd roadev
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+bundle install
+```
 
-* Deployment instructions
+```bash
+yarn install
+```
 
-* ...
+### Usage
+
+```bash
+docker-compose up -d db
+```
+
+## License
+
+Licensed under MIT License Copyright (c) 2021 Alexis Ortega. See [LICENSE.txt](LICENSE) for further details.
