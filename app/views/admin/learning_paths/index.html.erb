@@ -1,26 +1,25 @@
-<div class="row">
-  <div class="col">
-    <h1>Learning Paths</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Learning Paths</h1>
+    </div>
+    <div class="col text-end">
+      <%= link_to 'New Learning Path', new_admin_learning_path_path, class: "btn btn-primary", remote: true %>
+    </div>
   </div>
-  <div class="col text-end">
-    <%= link_to 'New Learning Path', new_admin_learning_path_path, class: "btn btn-primary", remote: true %>
-  </div>
+  <table id="learning-paths-table" class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col" colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @learning_paths.each do |learning_path| %>
+        <%= render "learning_path_row", learning_path: learning_path %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<table id="learning-paths-table" class="table table-striped">
-  <thead>
-  <tr>
-    <th scope="col">Title</th>
-    <th scope="col">Description</th>
-    <th scope="col" colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-    <% @learning_paths.each do |learning_path| %>
-      <%= render "learning_path_row", learning_path: learning_path %>
-    <% end %>
-  </tbody>
-</table>
-
 <div id="modal-placeholder"></div>

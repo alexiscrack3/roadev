@@ -1,8 +1,10 @@
 <% provide(:title, "Dashboard") %>
-<section class="row learning-paths my-2">
-  <% @learning_paths.each do |learning_path| %>
-  <div class="col-sm-6 col-md-4">
-    <%= render "learning_path", learning_path: learning_path %>
-  </div>
-  <% end %>
-</section>
+<div class="container">
+  <section class="row learning-paths my-2">
+    <% @learning_paths.each do |learning_path| %>
+      <div class="col-sm-6 col-md-4">
+        <%= render "learning_path", learning_path: learning_path %>
+      </div>
+    <% end %>
+  </section>
+</div>

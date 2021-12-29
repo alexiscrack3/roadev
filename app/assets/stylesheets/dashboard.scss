@@ -1,13 +1,17 @@
-@import "colors";
-
 .learning-paths {
   margin: 0 auto;
 }
 
 .learning-path {
-  background: $light-gray;
-  a {
-    color: black;
-    text-decoration: none;
+  background-color: white;
+
+  .learning-path-title {
+    color: $primary-color;
+  }
+  .learning-path-subtitle {
+    color: $primary-color;
+  }
+  .learning-path-text {
+    color: $primary-color;
   }
 }

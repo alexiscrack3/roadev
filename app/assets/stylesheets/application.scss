@@ -1,5 +1,62 @@
-// Custom bootstrap variables must be set or imported *before* bootstrap.
-
 @import "**/*";
+@import "bootstrap";
 //@import "sessions";
 //@import "dashboard";
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+th,
+td {
+    color: $primary-text-color;
+}
+
+i {
+    color: $primary-accent-color;
+}
+
+ul {
+    padding: 0;
+    li {
+        list-style-type: none;
+    }
+}
+
+a.link-primary {
+    text-decoration: none;
+    /* unvisited link */
+    &:link {
+        color: $primary-accent-color;
+    }
+
+    /* visited link */
+    &:visited {
+        color: $primary-accent-color;
+    }
+
+    /* mouse over link */
+    &:hover {
+        color: $primary-accent-color-dark;
+    }
+
+    /* selected link */
+    &:active {
+        color: $primary-accent-color-dark;
+    }
+}
+
+.text-primary {
+    color: $primary-text-color !important;
+}
+
+.text-secondary {
+    color: $secondary-text-color !important;
+}
+
+.accent-secondary {
+    color: $secondary-accent-color;
+}

@@ -1,2 +1,38 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-5">
+      <h1>Track your learning path progress</h1>
+      <h3>Gain domain-specific expertise with skill tracks, a collection of learning paths curated by industry experts to help you grow your data skills and take your next big step.</h3>
+      <p>Want to track your career? <%= link_to "Click here", sign_up_path, class: "link-primary" %></p>
+      <ul>
+        <li>
+          <i class="bi bi-clock"></i>
+          Learn at your own pace
+        </li>
+        <li>
+          <i class="bi bi-bar-chart"></i>
+          Get hands-on experience
+        </li>
+        <li>
+          <i class="bi bi-trophy"></i>
+          Master complementary skills</li>
+      </ul>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-7">
+      <%= image_tag("tech_1280.jpg", :alt => "tech", :class => "img-fluid") %>
+    </div>
+  </div>
+</div>
+<div class="bg-secondary py-2">
+  <div class="container">
+    <div class="row">
+      <h2 class="text-secondary">Start learning <span class="accent-secondary">for free</span></h2>
+      <p class="text-secondary">Grow your data skills by following a guided series of videos and interactive exercises.</p>
+      <% @learning_paths.each do |learning_path| %>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <%= render "dashboard/learning_path", learning_path: learning_path %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

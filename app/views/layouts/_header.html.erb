@@ -1,8 +1,7 @@
-<header class="p-3 bg-dark text-white">
+<header class="p-3 bg-primary">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <a class="navbar-brand text-white" href="/">Roadev</a>
-
+      <a class="navbar-brand link-primary" href="/">Roadev</a>
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><%= link_to "Dashboard", dashboard_path, class: "nav-link px-2 text-white" %></li>
         <% if current_user && current_user.admin %>
@@ -17,7 +16,6 @@
           </li>
         <% end %>
       </ul>
-
       <div class="text-end">
         <% if logged_in? %>
           <div class="dropdown">

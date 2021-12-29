@@ -1,4 +1,8 @@
-<div class="learning-path text-center p-2 my-2 rounded">
-  <%= link_to learning_path.title, learning_path_path(learning_path), class: "h2" %>
-  <p><%= learning_path.description %></p>
+<div class="card learning-path" style="width: 18rem;">
+  <div class="card-body">
+    <h2 class="card-title learning-path-title"><%= learning_path.title %></h2>
+    <h6 class="card-subtitle learning-path-subtitle mb-2 text-muted"><%= learning_path.description %></h6>
+    <p class="card-text learning-path-text">BLah blah</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
 </div>
