@@ -67,4 +67,4 @@ rails server
 
 ## License
 
-Licensed under MIT License. See [LICENSE.txt](LICENSE) for further details.
+Licensed under MIT License. See [LICENSE](LICENSE) for further details.
