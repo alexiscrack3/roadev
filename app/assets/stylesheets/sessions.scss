@@ -2,5 +2,27 @@
 
 .session-form {
   background: white;
-  padding: 15px;
+  padding: 26px;
+
+  .form-label {
+    font-weight: 600;
+    font-size: 16px;
+    color: $primary-color;
+  }
+
+  input[type="submit"] {
+    background-color: $primary-accent-color;
+    color: $primary-color;
+    font-weight: 600;
+    font-size: 16px;
+    border-width: 0;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: #65ff8f;
+      border-color: #65ff8f;
+      color: $primary-color;
+    }
+  }
 }

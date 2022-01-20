@@ -29,6 +29,7 @@
     <div class="col-md-6 col-lg-4 order-1 order-md-2">
       <div class="session-form rounded">
         <%= form_with(url: sign_up_path, model: @user, local: true) do |f| %>
+          <h2 class="text-black text-center">Create your free account to grow your data skills</h2>
           <div class="mb-3 row">
             <div class="col">
               <%= f.label :first_name, class: "form-label" %>
@@ -54,7 +55,7 @@
             <div id="password-confirmation-help" class="form-text">Passwords need to match.</div>
           </div>
           <div class="mb-3">
-            <%= f.submit "Sign up", class: "btn btn-primary w-100" %>
+            <%= f.submit "Sign up", class: "btn btn-lg btn-primary w-100" %>
           <% end %>
         </div>
       </div>

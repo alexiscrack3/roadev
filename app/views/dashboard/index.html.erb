@@ -2,7 +2,7 @@
 <div class="container">
   <section class="row learning-paths my-2">
     <% @learning_paths.each do |learning_path| %>
-      <div class="col-sm-6 col-md-4">
+      <div class="col-sm-12 col-md-6 col-lg-4 my-2">
         <%= render "learning_path", learning_path: learning_path %>
       </div>
     <% end %>

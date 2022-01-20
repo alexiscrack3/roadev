@@ -40,13 +40,24 @@ a.link-primary {
 
     /* mouse over link */
     &:hover {
-        color: $primary-accent-color-dark;
+        color: $primary-accent-color;
+        text-decoration: underline;
     }
 
     /* selected link */
     &:active {
-        color: $primary-accent-color-dark;
+        color: $primary-accent-color;
+        text-decoration: underline;
     }
+}
+
+.navbar-dark .navbar-brand {
+    color: $primary-accent-color;
+}
+
+.navbar-dark .navbar-brand:hover,
+.navbar-dark .navbar-brand:focus {
+    color: $primary-accent-color;
 }
 
 .text-primary {
