@@ -1,39 +1,41 @@
-<footer class="py-3 my-4 border-top">
+<footer class="py-3">
   <div class="container">
     <div class="row">
       <div class="col-4">
-        <span class="text-muted">© 2021 Company, Inc</span>
+        <span class="text-white">© 2021 Company, Inc</span>
       </div>
       <ul class="nav col-8 justify-content-end">
         <% if Rails.env.development? %>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted" data-bs-toggle="modal" data-bs-target="#debug-console">Debug</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-white" data-bs-toggle="modal" data-bs-target="#debug-console">Debug</a></li>
         <% end %>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Contact</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">About</a></li>
       </ul>
     </div>
   </div>
 </footer>
-<!-- Modal -->
-<div class="modal fade" id="debug-console" tabindex="-1" aria-labelledby="debug-console-label" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="debug-console-label">Debug Console</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row justify-content-center">
-          <div class="col">
-            <div class="bg-dark text-start text-white p-2 mt-4 rounded">
-              <%= debug(params) %>
+<% if Rails.env.development? %>
+  <!-- Modal -->
+  <div class="modal fade" id="debug-console" tabindex="-1" aria-labelledby="debug-console-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="debug-console-label">Debug Console</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row justify-content-center">
+            <div class="col">
+              <div class="bg-dark text-start text-white p-2 mt-4 rounded">
+                <%= debug(params) %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
