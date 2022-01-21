@@ -1,37 +1,40 @@
 <% provide(:title, "Forgot password") %>
-<div class="row">
-  <div class="col">
-    <h1>Roadev</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Roadev</h1>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-6 col-lg-8 order-2 order-md-1">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at autem ea eaque eum eveniet facilis labore laudantium molestias odit, quia, sapiente similique sint tempora velit! Commodi labore, nihil? Unde!</p>
-    <ul>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-    </ul>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at autem ea eaque eum eveniet facilis labore laudantium molestias odit, quia, sapiente similique sint tempora velit! Commodi labore, nihil? Unde!</p>
-    <ul>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-    </ul>
-  </div>
-  <div class="col-md-6 col-lg-4 order-1 order-md-2">
-    <div class="session-form rounded">
-      <%= form_with(url: password_resets_path, scope: :password_reset, local: true) do |f| %>
-        <div class="mb-3">
-          <%= f.label :email, class: "form-label" %>
-          <%= f.email_field :email, class: "form-control" %>
-        </div>
-        <div>
-          <%= f.submit "Submit", class: "btn btn-primary w-100" %>
-        </div>
-      <% end %>
+  <div class="row">
+    <div class="col-md-6 col-lg-8 order-2 order-md-1">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at autem ea eaque eum eveniet facilis labore laudantium molestias odit, quia, sapiente similique sint tempora velit! Commodi labore, nihil? Unde!</p>
+      <ul class="list-primary">
+        <li><a class="link-primary" href="#">Link</a></li>
+        <li><a class="link-primary" href="#">Link</a></li>
+        <li><a class="link-primary" href="#">Link</a></li>
+        <li><a class="link-primary" href="#">Link</a></li>
+      </ul>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at autem ea eaque eum eveniet facilis labore laudantium molestias odit, quia, sapiente similique sint tempora velit! Commodi labore, nihil? Unde!</p>
+      <ul class="list-primary">
+        <li><a class="link-primary" href="#">Link</a></li>
+        <li><a class="link-primary" href="#">Link</a></li>
+        <li><a class="link-primary" href="#">Link</a></li>
+        <li><a class="link-primary" href="#">Link</a></li>
+      </ul>
+    </div>
+    <div class="col-md-6 col-lg-4 order-1 order-md-2">
+      <div class="session-form rounded">
+        <%= form_with(url: password_resets_path, scope: :password_reset, local: true) do |f| %>
+          <h2 class="text-center">Need Help!</h2>
+          <div class="mb-3">
+            <%= f.label :email, class: "form-label" %>
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
+          <div>
+            <%= f.submit "Submit", class: "btn btn-lg btn-primary w-100" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
