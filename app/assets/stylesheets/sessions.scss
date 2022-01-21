@@ -8,6 +8,18 @@
     color: $primary-color;
   }
 
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:active {
+      text-decoration: underline;
+    }
+  }
+
   input[type="submit"] {
     background-color: $primary-accent-color;
     color: $primary-color;
