@@ -24,7 +24,7 @@
     <div class="col-md-6 col-lg-4 order-1 order-md-2">
       <div class="session-form rounded">
         <%= form_with(url: sign_in_path, scope: :session, local: true) do |f| %>
-          <h2 class="text-black text-center">Welcome Back!</h2>
+          <h2 class="text-center">Welcome Back!</h2>
           <div class="mb-3">
             <%= f.label :email, class: "form-label" %>
             <%= f.email_field :email, class: "form-control" %>
