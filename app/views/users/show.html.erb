@@ -1,27 +1,37 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <p>
-        <strong>First name:</strong>
-        <%= @user.first_name %>
-      </p>
-      <p>
-        <strong>Last name:</strong>
-        <%= @user.last_name %>
-      </p>
-      <p>
-        <strong>Email:</strong>
-        <%= @user.email %>
-      </p>
-      <p>
-        <strong>Admin:</strong>
-        <%= @user.admin ? "Yes" : "No" %>
-      </p>
-      <%= link_to "Edit", edit_user_path(@user) %> |
-      <%= link_to "Back", dashboard_path %>
-    </div>
-    <div class="col">
-      <%= gravatar_for @user, size: 100 %>
+<div class="py-4" style="background-color: green">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <%= gravatar_for @user, size: 100 %>
+        <p>
+          <strong>Email:</strong>
+          <%= @user.email %>
+        </p>
+        <p>
+          <strong>Admin:</strong>
+          <%= @user.admin ? "Yes" : "No" %>
+        </p>
+        <p>
+          <strong>Joined:</strong>
+          <%= @user.created_at %>
+        </p>
+        <button class="btn btn-primary">Edit Profile</button>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="container" style="background-color: orange">
+          <div class="row statistics">
+            <div class="col">
+              <span>XP earned</span>
+            </div>
+            <div class="col">
+              <span>Courses completed</span>
+            </div>
+            <div class="col">
+              <span>Projects completed</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

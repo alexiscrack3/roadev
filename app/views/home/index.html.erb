@@ -1,10 +1,28 @@
-<div class="container">
+<div class="d-flex flex-column align-items-center px-3 py-5">
+  <h1>Track the skills you need to deliver results</h1>
+  <p>Hands-on courses help you learn without the hassle of setup or videos</p>
+  <button type="button" class="btn btn-lg btn-primary">Explore Paths</button>
+  <%= image_tag("landing_640.png", :alt => "landing page", :class => "img-fluid mt-3") %>
+</div>
+<div class="bg-light px-3 py-5">
+  <div class="container px-0">
+    <div class="row">
+      <h2>Start learning <span class="text-primary">for free</span></h2>
+      <p>Grow your data skills by following a guided series of videos and interactive exercises.</p>
+      <% @learning_paths.each do |learning_path| %>
+        <div class="col-sm-12 col-md-6 col-lg-4 my-2">
+          <%= render "dashboard/learning_path", learning_path: learning_path %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container px-3 py-5">
   <div class="row">
-    <div class="col-sm-12 col-lg-6 mb-4">
-      <h1>Track the skills you need to deliver results</h1>
+    <div class="col-sm-12 col-lg-6">
       <h3>Gain domain-specific expertise with skill tracks, a collection of learning paths curated by industry experts to help you grow your data skills and take your next big step.</h3>
       <p>Want to track your career? <%= link_to "Click here", sign_up_path, class: "link-primary" %></p>
-      <ul class="list-primary">
+      <ul>
         <li>
           <i class="bi bi-clock"></i>
           Learn at your own pace
@@ -17,22 +35,6 @@
           <i class="bi bi-trophy"></i>
           Master complementary skills</li>
       </ul>
-    </div>
-    <div class="col-sm-12 col-lg-6 mb-4">
-      <%= image_tag("tech_1280.jpg", :alt => "tech", :class => "img-fluid") %>
-    </div>
-  </div>
-</div>
-<div class="bg-secondary py-4">
-  <div class="container">
-    <div class="row">
-      <h2 class="text-secondary">Start learning <span class="accent-secondary">for free</span></h2>
-      <p class="text-secondary">Grow your data skills by following a guided series of videos and interactive exercises.</p>
-      <% @learning_paths.each do |learning_path| %>
-        <div class="col-sm-12 col-md-6 col-lg-4 my-2">
-          <%= render "dashboard/learning_path", learning_path: learning_path %>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>

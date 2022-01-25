@@ -1,107 +1,34 @@
-@import "**/*";
+@import "override";
 @import "bootstrap";
+@import "**/*";
 //@import "sessions";
 //@import "dashboard";
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-li,
-th,
-td {
-    color: $primary-text-color;
-}
 
 i {
-    color: $primary-accent-color;
+    color: $primary-color;
 }
 
-ul.list-primary {
-    margin: 0;
-    padding: 0;
-    li {
-        list-style-type: none;
-    }
-}
-
-a.link-primary {
+a {
     text-decoration: none;
     /* unvisited link */
     &:link {
-        color: $primary-accent-color;
+        // color: $primary-color;
     }
 
     /* visited link */
     &:visited {
-        color: $primary-accent-color;
+        // color: $primary-color;
     }
 
     /* mouse over link */
     &:hover {
-        color: $primary-accent-color;
+        // color: $primary-color;
         text-decoration: underline;
     }
 
     /* selected link */
     &:active {
-        color: $primary-accent-color;
+        // color: $primary-color;
         text-decoration: underline;
     }
-}
-
-a.link-secondary {
-    text-decoration: none;
-
-    &:link {
-        color: $secondary-accent-color;
-    }
-
-    &:visited {
-        color: $secondary-accent-color;
-    }
-
-    &:hover {
-        color: $secondary-accent-color;
-        text-decoration: underline;
-    }
-
-    &:active {
-        color: $secondary-accent-color;
-        text-decoration: underline;
-    }
-}
-
-.navbar-dark .navbar-brand {
-    color: $primary-accent-color;
-}
-
-.navbar-dark .navbar-brand:hover,
-.navbar-dark .navbar-brand:focus {
-    color: $primary-accent-color;
-}
-
-.modal {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        color: $primary-color;
-    }
-}
-
-.text-primary {
-    color: $primary-text-color !important;
-}
-
-.text-secondary {
-    color: $secondary-text-color !important;
-}
-
-.accent-secondary {
-    color: $secondary-accent-color;
 }

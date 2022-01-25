@@ -1,47 +1,15 @@
 .session-form {
-  background-color: white;
+  background-color: $gray-200;
   padding: 26px;
 
   .form-label {
     font-weight: 600;
     font-size: 16px;
-    color: $primary-color;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: $primary-color;
-  }
-
-  a {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &:active {
-      text-decoration: underline;
-    }
   }
 
   input[type="submit"] {
-    background-color: $primary-accent-color;
-    color: $primary-color;
     font-weight: 600;
     font-size: 16px;
     border-width: 0;
-
-    &:active,
-    &:focus,
-    &:hover {
-      background-color: #65ff8f;
-      border-color: #65ff8f;
-      color: $primary-color;
-    }
   }
 }

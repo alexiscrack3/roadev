@@ -1,0 +1,26 @@
+header {
+    background-color: white;
+
+    a {
+        text-decoration: none;
+        /* unvisited link */
+        &:link {
+            // color: $primary-color;
+        }
+
+        /* visited link */
+        &:visited {
+            // color: $primary-color;
+        }
+
+        /* mouse over link */
+        &:hover {
+            text-decoration: none;
+        }
+
+        /* selected link */
+        &:active {
+            text-decoration: none;
+        }
+    }
+}

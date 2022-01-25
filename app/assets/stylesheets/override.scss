@@ -1,0 +1,22 @@
+@import "colors";
+
+$body-bg: white;
+$body-color: $primary-text-color;
+
+$theme-colors: (
+    "primary": $primary-color,
+    "secondary": $accent-color,
+    "success": #198754,
+    "info": #0dcaf0,
+    "warning": #ffc107,
+    "danger": #dc3545,
+    "light": $primary-color-light,
+    "dark": $primary-color-dark,
+);
+
+$dropdown-link-color: $primary-text-color;
+$dropdown-link-hover-color: white;
+$dropdown-link-hover-bg: $primary-color;
+
+$dropdown-link-active-color: white;
+$dropdown-link-active-bg: $primary-color;
