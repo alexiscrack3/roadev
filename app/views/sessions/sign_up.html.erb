@@ -1,11 +1,11 @@
-<div class="container py-5">
+<div class="container my-5">
   <div class="row">
     <div class="col">
       <%= render "shared/error_messages", object: @user %>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 col-lg-8 order-2 order-md-1 pt-3 pt-md-0">
+    <div class="col-md-6 col-lg-8 order-2 order-md-1 mt-3 mt-md-0">
       <h1 class="d-none d-md-block">Roadev</h1>
       <h3>Gain domain-specific expertise with skill tracks, a collection of learning paths curated by industry experts to help you grow your data skills and take your next big step.</h3>
       <p>Want to track your career? <%= link_to "Click here", sign_up_path, class: "link-primary" %></p>
@@ -23,7 +23,7 @@
           Master complementary skills</li>
       </ul>
     </div>
-    <div class="col-md-6 col-lg-4 order-1 order-md-2 pt-3 pt-md-0">
+    <div class="col-md-6 col-lg-4 order-1 order-md-2 mt-3 mt-md-0">
       <h1 class="d-block d-md-none">Roadev</h1>
       <div class="session-form rounded">
         <%= form_with(url: sign_up_path, model: @user, local: true) do |f| %>

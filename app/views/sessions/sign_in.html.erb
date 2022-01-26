@@ -1,13 +1,6 @@
-<div class="container py-5">
+<div class="container my-5">
   <div class="row">
-    <div class="col">
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>" role="alert"><%= message %></div>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 col-lg-8 order-2 order-md-1 pt-3 pt-md-0">
+    <div class="col-md-6 col-lg-8 order-2 order-md-1 mt-3 mt-md-0">
       <h1 class="d-none d-md-block">Roadev</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at autem ea eaque eum eveniet facilis labore laudantium molestias odit, quia, sapiente similique sint tempora velit! Commodi labore, nihil? Unde!</p>
       <ul>
@@ -24,7 +17,7 @@
         <li><a href="#" class="link-secondary">Link</a></li>
       </ul>
     </div>
-    <div class="col-md-6 col-lg-4 order-1 order-md-2 pt-3 pt-md-0">
+    <div class="col-md-6 col-lg-4 order-1 order-md-2 mt-3 mt-md-0">
       <h1 class="d-block d-md-none">Roadev</h1>
       <div class="session-form rounded">
         <%= form_with(url: sign_in_path, scope: :session, local: true) do |f| %>
