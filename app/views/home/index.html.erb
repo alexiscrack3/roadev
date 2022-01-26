@@ -1,40 +1,59 @@
 <div class="d-flex flex-column align-items-center px-3 py-5">
   <h1>Track the skills you need to deliver results</h1>
-  <p>Hands-on courses help you learn without the hassle of setup or videos</p>
-  <button type="button" class="btn btn-lg btn-primary">Explore Paths</button>
+  <p>Get the skills you need for your dream job and the future of work</p>
+  <button type="button"class="btn btn-lg btn-primary">Explore Paths</button>
   <%= image_tag("landing_640.png", :alt => "landing page", :class => "img-fluid mt-3") %>
+</div>
+<div class="bg-light px-3 py-5">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row align-items-center">
+      <div class="col-12 col-md-5 align-items-start text-center text-md-start">
+        <h1>Used by learners at thousands of companies.</h2>
+        <p>Join 2,000+ companies and 80% of the Fortune 1000 who use DataCamp to upskill their teams.</p>
+        <button type="button" class="btn btn-lg btn-secondary">Learn More</button>
+      </div>
+      <div class="col-12 col-md-7 text-center pt-3 pt-md-0">
+        <div class="row">
+          <div class="col-4">
+            <h2>Google</h2>
+          </div>
+          <div class="col-4">
+            <h2>Microsoft</h2>
+          </div>
+          <div class="col-4">
+            <h2>Facebook</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <h2>Twitter</h2>
+          </div>
+          <div class="col-4">
+            <h2>GitHub</h2>
+          </div>
+          <div class="col-4">
+            <h2>GitLab</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex flex-column align-items-center px-3 py-5">
+  <h1>What is Roadev?</h1>
+  <p>Learn the data skills you need online at your own pace—from non-coding essentials to data science and machine learning.</p>
+  <%= link_to "Start Tracking For Free", sign_up_path, class: "btn btn-lg btn-primary" %>
 </div>
 <div class="bg-light px-3 py-5">
   <div class="container px-0">
     <div class="row">
       <h2>Start learning <span class="text-primary">for free</span></h2>
-      <p>Grow your data skills by following a guided series of videos and interactive exercises.</p>
+      <p>Grow your data skills by following a guided series of learning paths.</p>
       <% @learning_paths.each do |learning_path| %>
         <div class="col-sm-12 col-md-6 col-lg-4 my-2">
           <%= render "dashboard/learning_path", learning_path: learning_path %>
         </div>
       <% end %>
-    </div>
-  </div>
-</div>
-<div class="container px-3 py-5">
-  <div class="row">
-    <div class="col-sm-12 col-lg-6">
-      <h3>Gain domain-specific expertise with skill tracks, a collection of learning paths curated by industry experts to help you grow your data skills and take your next big step.</h3>
-      <p>Want to track your career? <%= link_to "Click here", sign_up_path, class: "link-primary" %></p>
-      <ul>
-        <li>
-          <i class="bi bi-clock"></i>
-          Learn at your own pace
-        </li>
-        <li>
-          <i class="bi bi-bar-chart"></i>
-          Get hands-on experience
-        </li>
-        <li>
-          <i class="bi bi-trophy"></i>
-          Master complementary skills</li>
-      </ul>
     </div>
   </div>
 </div>
