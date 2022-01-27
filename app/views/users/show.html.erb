@@ -1,37 +1,57 @@
-<div class="py-4" style="background-color: green">
-  <div class="container">
+<div class="container my-5">
+  <% if @user %>
     <div class="row">
-      <div class="col-sm-12 col-md-6">
-        <%= gravatar_for @user, size: 100 %>
-        <p>
-          <strong>Email:</strong>
-          <%= @user.email %>
-        </p>
-        <p>
-          <strong>Admin:</strong>
-          <%= @user.admin ? "Yes" : "No" %>
-        </p>
-        <p>
-          <strong>Joined:</strong>
-          <%= @user.created_at %>
-        </p>
-        <button class="btn btn-primary">Edit Profile</button>
-      </div>
-      <div class="col-sm-12 col-md-6">
-        <div class="container" style="background-color: orange">
-          <div class="row statistics">
-            <div class="col">
-              <span>XP earned</span>
-            </div>
-            <div class="col">
-              <span>Courses completed</span>
-            </div>
-            <div class="col">
-              <span>Projects completed</span>
-            </div>
-          </div>
-        </div>
+      <div class="col">
+        <%= render "shared/error_messages", object: @user %>
       </div>
     </div>
-  </div>
+    <div class="row my-3">
+      <div class="col-12 col-md-4 offset-md-1">
+        <h4>Public avatar</h4>
+        <p>You can change your avatar here or remove the current avatar to revert to <a href="https://gravatar.com">gravatar.com</a></p>
+      </div>
+      <div class="col-12 col-md-6">
+        <%= gravatar_for @user, size: 100 %>
+      </div>
+      <div class="d-none col-md-1"></div>
+    </div>
+    <div class="row my-3">
+      <div class="col-12 col-md-4 offset-md-1">
+        <h4>Main settings</h4>
+        <p>This information will appear on your profile</p>
+      </div>
+      <div class="col-12 col-md-6">
+        <%= form_with(model: @user, local: true) do |f| %>
+          <div class="mb-3">
+            <%= f.label :id, "User ID", class: "form-label" %>
+            <%= f.text_field :id, class: "form-control", disabled: true, readonly: true %>
+          </div>
+          <div class="mb-3">
+            <%= f.label :first_name, class: "form-label" %>
+            <%= f.text_field :first_name, class: "form-control" %>
+            <div id="first-name-help" class="form-text">Enter your name, so people you know can recognize you.</div>
+          </div>
+          <div class="mb-3">
+            <%= f.label :last_name, class: "form-label" %>
+            <%= f.text_field :last_name, class: "form-control" %>
+            <div id="last-name-help" class="form-text">Enter your last name, so people you know can recognize you.</div>
+          </div>
+          <div class="mb-3">
+            <%= f.label :email, class: "form-label" %>
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
+          <div class="mb-3">
+            <%= f.submit "Update profile", class: "btn btn-lg btn-primary w-100" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="d-none col-md-1"></div>
+    </div>
+  <% else %>
+    <div class="row">
+      <div class="col">
+        <p>User not found</p>
+      </div>
+    </div>
+  <% end %>
 </div>
