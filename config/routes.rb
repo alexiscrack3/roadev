@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     post "/sign_in", to: "sessions#authenticate_user"
     delete "/sign_out", to: "sessions#sign_out"
   end
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :update]
   resources :account_activations, only: [:edit]
   resources :learning_paths, only: [:show]
   resources :password_resets, only: [:new, :create, :edit, :update]

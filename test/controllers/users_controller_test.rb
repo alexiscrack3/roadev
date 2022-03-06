@@ -12,11 +12,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to sign_in_path
   end
 
-  test "user should be redirected to login page when navigating to edit page and not logged in" do
-    get edit_user_path(@user)
-    assert_not flash.empty?
-    assert_redirected_to sign_in_path
-  end
+  # test "user should be redirected to login page when navigating to edit page and not logged in" do
+  #   get edit_user_path(@user)
+  #   assert_not flash.empty?
+  #   assert_redirected_to sign_in_path
+  # end
 
   test "user should be redirected to login page when updating user's info and not logged in" do
     user = {
@@ -27,12 +27,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to sign_in_path
   end
 
-  test "user should be redirected to index page when editing other user's info and logged in as wrong user" do
-    log_in_as(@other_user.email, password: "password")
-    get edit_user_path(@user)
-    assert flash.empty?
-    assert_redirected_to root_url
-  end
+  # test "user should be redirected to index page when editing other user's info and logged in as wrong user" do
+  #   log_in_as(@other_user.email, password: "password")
+  #   get edit_user_path(@user)
+  #   assert flash.empty?
+  #   assert_redirected_to root_url
+  # end
 
   test "user should be redirected to index page when updating other user's info and logged in as wrong user" do
     log_in_as(@other_user.email, password: "password")
