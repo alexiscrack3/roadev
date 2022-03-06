@@ -12,11 +12,18 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to sign_in_path
   end
 
-  # test "user should be redirected to login page when navigating to edit page and not logged in" do
-  #   get edit_user_path(@user)
-  #   assert_not flash.empty?
-  #   assert_redirected_to sign_in_path
-  # end
+  test "user should be updated when logged in" do
+    log_in_as(@user.email, password: "password")
+    get user_path(@user)
+    user = {
+      first_name: "first name",
+      last_name: "last name",
+      linked_in: "linkedin"
+    }
+    patch user_path(@user), params: { user: user }
+    assert_not flash.empty?
+    assert_redirected_to user_path(@user)
+  end
 
   test "user should be redirected to login page when updating user's info and not logged in" do
     user = {

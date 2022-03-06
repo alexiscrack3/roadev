@@ -41,6 +41,10 @@
             <%= f.email_field :email, class: "form-control" %>
           </div>
           <div class="mb-3">
+            <%= f.label :linked_in, 'LinkedIn', class: "form-label" %>
+            <%= f.text_field :linked_in, class: "form-control" %>
+          </div>
+          <div class="mb-3">
             <%= f.submit "Update profile", class: "btn btn-lg btn-primary w-100" %>
           </div>
         <% end %>
